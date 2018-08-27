@@ -1,0 +1,50 @@
+.sideContent.searchAreaSide.clearfix
+  %h2.sideContentTitle レシピを探す
+  .searchBox.side
+    %input.searchBox__input{name: "search", type: "text", placeholder: "食材・料理名を入力してください"}
+      %button.searchBox__button{type: "submit"}
+        = fa_icon 'search'
+        検索
+  .searchGenres
+    = link_to '#' do
+      .genre
+        = fa_icon 'bell 3x'
+        %p 短時間調理
+    = link_to '#' do
+      .genre
+        = fa_icon 'bitcoin 3x'
+        %p 節約料理
+    = link_to '#' do
+      .genre
+        = fa_icon 'bars 3x'
+        %p カテゴリ別
+.sideContent.dailyRank.clearfix
+  %h2.sideContentTitle デイリーランキング
+  = link_to href: "#", class: "sideRecipe claerfix" do
+    %image.sideRecipe__image{src: 'assets/katsu7.jpg'}
+    %p.sideRecipe__rank 1位
+    %p.sideRecipe__title スーパーカツ丼
+    %p.sideRecipe__user そばめしさん
+  %a.sideRecipe
+    %image.sideRecipe__image{src: 'assets/katsu7.jpg'}
+    %p.sideRecipe__rank 1位
+    %p.sideRecipe__title スーパーカツ丼
+    %p.sideRecipe__user
+  .sideRecipe
+    %image.sideRecipe__image{src: 'assets/katsu7.jpg'}
+    %p.sideRecipe__rank 1位
+    %p.sideRecipe__title スーパーカツ丼
+    %p.sideRecipe__user
+  .sideRecipe
+    %image.sideRecipe__image{src: 'assets/katsu7.jpg'}
+    %p.sideRecipe__rank 1位
+    %p.sideRecipe__title スーパーカツ丼
+    %p.sideRecipe__user
+  .sideRecipe
+    %image.sideRecipe__image{src: 'assets/katsu7.jpg'}
+    %p.sideRecipe__rank 1位
+    %p.sideRecipe__title スーパーカツ丼
+    %p.sideRecipe__user                
+
+
+

@@ -4,8 +4,12 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Diyid
     = csrf_meta_tags
-    = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    = render '/layouts/header'
+    .contentInner
+      .mainContents
+        = yield
+      .sideContents
+        = render '/layouts/side_bar'

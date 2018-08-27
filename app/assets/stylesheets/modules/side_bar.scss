@@ -1,0 +1,66 @@
+
+
+// sidebar
+
+.sideContents {
+  width: 300px;
+  float: right;
+  height: 200px;
+
+}
+
+.sideContent {
+  margin-bottom: 10px;
+  border: 1px solid $lightGray;
+  border-radius: 3px;
+  padding: 10px;
+  .sideContentTitle {
+    font-size: 20px;
+  }
+}
+
+.searchAreaSide {
+  .title {
+
+  }
+  .searchBox {
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 0;
+  }
+  .searchGenres {
+    padding-top: 15px;
+    text-align: center;
+    .genreWrapper {
+
+    }
+    .genre {
+      padding: 10px 5px;
+      width: 31%;
+      margin: 1%;
+      height: 100px;
+      float: left;
+      border: 1px dotted $lightGray;
+      color: $darkGray;
+      p {
+        margin-top: 15px;
+        font-size: 12px;
+      }
+      &:hover {
+        color: white;
+        background-color: $darkGray;
+        border: none;
+      }
+    }
+  }
+}
+
+.sideRecipe {
+  &__image {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 2px;
+    float: left;
+  }
+}

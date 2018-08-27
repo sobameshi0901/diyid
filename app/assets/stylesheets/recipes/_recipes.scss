@@ -1,0 +1,132 @@
+// Place all the styles related to the recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.contentInner {
+  height: 100vh;
+  width: 980px;
+  margin: 0 auto;
+  padding-top: 20px;
+
+}
+
+.mainContents {
+  width: 650px;
+  float: left;
+}
+
+.content {
+  margin-bottom: 25px;
+  border: 1px solid $lightGray;
+  border-radius: 3px;
+  background-color: white;
+  .leftContent {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  .rightContent {
+    float: right;
+    width: 50%;
+    padding: 10px;
+  }
+  .mainTitle {
+    padding:10px;
+    border-radius: 3px 3px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px double $lightGray;
+  }
+  .subTitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: none;
+    font-size: 16px;
+    border-bottom: 4px double $lightGray;
+    background-color: white;
+  }
+  img:hover {
+    opacity: 0.5;
+  }
+  a {
+    color: $black;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+.mainRecipe {
+  width: 100%;
+  height: 300px;
+  padding: 3px;
+  &__image {
+    width: 100%;
+    height: 220px;
+    border-radius: 3px;
+    object-fit:cover;
+  }
+  &__title {
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  &__explain {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  &__user {
+    margin-top: 10px;
+    font-size: 12px;
+    color: $darkRed;
+  }
+}
+
+
+
+
+.subRecipe {
+  width: 33%;
+  height: 180px;
+  padding: 0px 3px 3px;
+  float: left;
+  position: relative;
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+    border-radius: 2px;
+  }
+  &__title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+  }
+  &__explain {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+  &:hover {
+    .subRecipe {
+      &__image {
+        opacity: 0.5
+      }
+      &__title, &__explain {
+        color: $orange;
+      }
+    }
+  }
+  .rank {
+    width: 35px;
+    position: absolute;
+    top: 2px;
+    left:5px;
+    z-index: 10;
+  }
+}
+
+
