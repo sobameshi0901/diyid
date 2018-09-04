@@ -1,8 +1,21 @@
-.content.clearfix
+.clearfix
   .recipe
     .recipePankuzu
       %p トップ　＞　家具・照明　＞　トンカツ風の机
     %h3.recipeTitle トンカツ風の机
+    .recipeFavo.clearfix
+      .recipeFavo__like 
+        =fa_icon 'heart'
+        %p いいね
+      .recipeFavo__favo
+        =fa_icon 'star'
+        %p お気に入り
+      .recipeFavo__facebook
+        =fa_icon 'facebook-square'
+        %p シェアする
+      .recipeFavo__twitter.noMarginRight
+        =fa_icon 'twitter-square'
+        %p ツイートする
     .recipeTop.clearfix
       %image.recipePhoto{src: '/assets/katsu1.jpg'}
       .recipeDetail
@@ -11,12 +24,20 @@
         %h6 完成サイズ： h200xw200xd200
         %h6.comment ひとこと
         %p なんかとっても暇だったので、ちょっと作ってみました。豚を倒すのがちょっと難しかったかな。
-    .recipeFavo
-      %a.recipeFavo__like 
-        =fa_icon 'like' 
-        いいね：１
-      %a.recipeFavo__favo お気に入り：１
-      %a.recipeFavo__facebook シェアする
-      %a.recipeFavo__twitter.noMarginRight ツイートする
     .recipeMates
+      .recipeMate.margin
+        %h6.recipeMate__title 使用した材料
+        %ul.recipeMate__materials
+          %li トンカツ
+          %li 卵
+      .recipeMate
+        %h6.recipeMate__title 使用した工具
+        %ul.recipeMate__materials
+          %li おたま
+          %li スプーン
+          %li ボウル
+          %li お箸
+    %a.amazonButton
+      =fa_icon 'amazon'
+      Amazonで購入する
     .recipeSteps
