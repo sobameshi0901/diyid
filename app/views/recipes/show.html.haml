@@ -19,20 +19,43 @@
     .recipeTop.clearfix
       %image.recipePhoto{src: '/assets/katsu1.jpg'}
       .recipeDetail
-        %h6 制 作 費 用： 20,000円
-        %h6 制 作 時 間： 6年
-        %h6 完成サイズ： h200xw200xd200
+        %h6
+          制 作 費 用：
+          %span<> 20,000円
+        %h6
+          制 作 時 間：
+          %span<> 6年
+        %h6
+          完成サイズ：
+          %span<> h200xw200xd200
         %h6.comment ひとこと
         %p なんかとっても暇だったので、ちょっと作ってみました。豚を倒すのがちょっと難しかったかな。
+        .tags
+          %h6.comment タグ一覧
+          %a{href: '#'}
+            =fa_icon 'tag'
+            トンカツ
+          %a{href: '#'}
+            =fa_icon 'tag'
+            時短レシピ
+          %a{href: '#'}
+            =fa_icon 'tag'
+            千円以下
+          %a{href: '#'}
+            =fa_icon 'tag'
+            嫁に欲しい
+          %a{href: '#'}
+            =fa_icon 'tag'
+            何かよくわからない
     .recipeMates
-      .recipeMate.margin
-        %h6.recipeMate__title 使用した材料
-        %ul.recipeMate__materials
+      .recipeMate.recipeInfoBox.margin
+        %h6.recipeInfoBox__title 使用した材料
+        %ul.recipeInfoBox__contents
           %li トンカツ
           %li 卵
-      .recipeMate
-        %h6.recipeMate__title 使用した工具
-        %ul.recipeMate__materials
+      .recipeMate.recipeInfoBox
+        %h6.recipeInfoBox__title 使用した工具
+        %ul.recipeInfoBox__contents
           %li おたま
           %li スプーン
           %li ボウル
@@ -40,10 +63,44 @@
     %a.amazonButton
       =fa_icon 'amazon'
       Amazonで購入する
-    .recipeSteps
+    .recipeSteps.clearfix
       .recipeStep
-        .recipeStep__stepNum Step 1
+        .recipeStep__stepNum 
+          STEP .
+          %span 1
         .recipeStep__stepDetail.claerfix
-          %p.recipeStep__stepDetail__comment なかなかいい感じですなあ
           %image.recipeStep__stepDetail__pic{src: '/assets/katsu1.jpg'}
-
+          %p.recipeStep__stepDetail__comment なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。
+      .recipeStep
+        .recipeStep__stepNum 
+          STEP .
+          %span 2
+        .recipeStep__stepDetail.claerfix
+          %image.recipeStep__stepDetail__pic{src: '/assets/katsu1.jpg'}
+          %p.recipeStep__stepDetail__comment なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。
+      .recipeStep
+        .recipeStep__stepNum 
+          STEP .
+          %span 3
+        .recipeStep__stepDetail.claerfix
+          %image.recipeStep__stepDetail__pic{src: '/assets/katsu1.jpg'}
+          %p.recipeStep__stepDetail__comment なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。あああ
+      .recipeStep
+        .recipeStep__stepNum 
+          STEP .
+          %span 4
+        .recipeStep__stepDetail.claerfix
+          %image.recipeStep__stepDetail__pic{src: '/assets/katsu1.jpg'}
+          %p.recipeStep__stepDetail__comment なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。
+      .recipeStep
+        .recipeStep__stepNum 
+          STEP .
+          %span 5
+        .recipeStep__stepDetail.claerfix
+          %image.recipeStep__stepDetail__pic{src: '/assets/katsu1.jpg'}
+          %p.recipeStep__stepDetail__comment なかなかいい感じですなあ。なかなかいい感じですなあ。なかなかいい感じですなあ。
+      .recipePoint.recipeInfoBox.margin
+        %h6.recipeInfoBox__title コツ・ポイント
+        %p.recipeInfoBox__content 何も考えるな。とにかくやってみろ。卵を割れ。豚をさばけ。何も考えるな。とにかくやってみろ。卵を割れ。豚をさばけ。何も考えるな。とにかくやってみろ。卵を割れ。豚をさばけ。何も考えるな。とにかくやってみろ。卵を割れ。豚をさばけ。何も考えるな。とにかくやってみろ。卵を割れ。豚をさばけ。
+      %p.recipeDate
+        公開日：2018年9月4日　　更新日：2018年9月5日

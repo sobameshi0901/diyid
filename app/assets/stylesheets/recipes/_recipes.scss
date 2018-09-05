@@ -168,34 +168,6 @@
   font-size: 30px;
 }
 
-.recipeTop {
-  margin-top: 20px;
-  width: 100%;
-  .recipePhoto {
-    width: 50%;
-    float: left;
-    border-radius: 5px;
-  }
-
-  .recipeDetail {
-    width: 50%;
-    padding: 0 15px;
-    float: left;
-    h6 {
-      font-size: 20px;
-      padding: 0 0 10px 3px;
-      margin-bottom: 25px;
-      border-bottom: 1px dotted $gray;
-    }
-    .comment {
-      margin: 20px 0 10px 0;
-    }
-    p {
-      padding-left: 5px;
-      font-size: 15px;
-    }
-  }
-}
 
 .recipeFavo {
   margin-top: 15px;
@@ -254,14 +226,61 @@
   }
 }
 
-.recipeMates {
+
+.recipeTop {
   margin-top: 20px;
-    width: 100%;
-    display: table;
-    border-collapse: separate;  /* セルの間隔を空ける */
-    border-spacing: 10px 0;  /* 左右 上下で記述 */
-  .recipeMate {
-    display: table-cell;
+  width: 100%;
+  .recipePhoto {
+    width: 50%;
+    float: left;
+    border-radius: 5px;
+  }
+
+  .recipeDetail {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+    min-height: 370px;
+    position: relative;
+
+    h6 {
+      font-size: 18px;
+      padding: 0 0 5px 3px;
+      margin-bottom: 30px;
+      border-bottom: 1px dotted $gray;
+      color: $darkGray;
+      span {
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+    .comment {
+      margin-bottom:10px;
+    }
+    p {
+      padding-left: 5px;
+      font-size: 15px;
+    }
+    .tags {
+      position: absolute;
+      bottom: 0;
+      h6{
+        margin-bottom: 0;
+      }
+     a{
+      display: inline-block;
+      padding: 4px;
+      margin-top: 10px;
+      border: 1px solid $gray;
+      font-size: 12px;
+      color: $facebook;
+     }
+   }
+  }
+}
+
+
+.recipeInfoBox {
     border: 1px solid $brown;
     border-radius: 2px;
     &__title {
@@ -271,14 +290,28 @@
       background-color: $beige;
       color: $brown;
     }
-    &__materials {
+    // 箇条書きの場合
+    &__contents {
       padding: 10px 20px;
       list-style: square;
       li {
         margin-bottom: 9px;
-
       }
     }
+    // コメントなど一要素のみ
+    &__content {
+      padding: 10px 20px;
+    }
+}
+
+.recipeMates {
+  margin-top: 40px;
+    width: 100%;
+    display: table;
+    border-collapse: separate;  /* セルの間隔を空ける */
+    border-spacing: 10px 0;  /* 左右 上下で記述 */
+  .recipeMate {
+    display: table-cell;
   }
   .margin {
     margin-right: 4%;
@@ -308,35 +341,48 @@
   }
 
 .recipeSteps {
-  margin-top: 20px;
+  width: 100%;
+  margin-top: 40px;
   .recipeStep {
-    width: 98%;
-    height: 200px;
-    margin: auto;
-    border: 1px solid $brown;
+    display: inline-block;
+    width: 32%;
+    padding: 15px 10px;
     &__stepNum {
-      padding: 15px;
-      float: left;
-      height: 100%;
-      width: 15%;
-      background-color: $lightGray;
+      border-bottom: 3px double $gray;
+      font-weight: bold;
+      font-size: 15px;
+      color: $brown;
+      padding-left: 10px;
+      span {
+        font-size: 22px;
+      }
     }
     &__stepDetail{
       height: 100%;
-      width: 85%;
+      width: 100%;
       float: left;
       &__comment {
-        padding: 15px;
-        display: block;
-        float: left;
+        font-size: 15px;
+        line-height: 19px;
       }
       &__pic {
-        padding: 5px;
-        display: block;
-        float: right;
-        height: 150px;
-        width: 150px;
+        height: 100%;
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 5px;
       }
     }
   }
+}
+
+.recipePoint {
+  width: 97%;
+  margin: 30px auto 0;
+}
+
+.recipeDate {
+  margin: 10px 20px 0 0;
+  text-align:right;
+  font-size: 12px;
+  color: $darkGray;
 }
