@@ -386,3 +386,45 @@
   font-size: 12px;
   color: $darkGray;
 }
+
+.recipeBoard {
+  width: 100%;
+  margin-top: 30px;
+  padding: 2%;
+}
+
+.post {
+  width: 100%;
+  padding: 10px;
+  color: $darkGray;
+  &__pic {
+    width: 60px;
+    border-radius: 50%;
+  }
+  &__name, &__date {
+    position: relative;
+    bottom: 15px;
+    margin-left: 10px;
+  }
+  &__date {
+    display: inline;
+    font-size: 12px;
+  }
+  &__content {
+    width: 100%;
+    background-color: $beige;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  &__replyButton {
+    margin-top: 5px;
+    padding: 7px 15px;
+    float: right;
+    background-color: $twitter;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+}
+
+
