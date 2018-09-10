@@ -1,0 +1,101 @@
+.recipeBoard {
+  text-align: center;  
+  .title {
+    font-size: 25px;
+  }
+}
+
+
+.posts {
+  padding: 20px 10px;
+  width: 100%;
+  margin: 15px auto;
+  font-size: 14px;
+
+//プロフィール共通
+  .prof {
+    width: 70px;
+    text-align: center;
+// アイコン共通
+     .icon {
+      width: 45px;
+      border-radius: 50%;
+     }
+     .name {
+      font-size: 12px;
+     }
+  }
+
+
+  .question {
+    width: 100%;
+    margin-bottom: 5px;
+    // アイコン右
+    &__prof {
+      width: 70px;
+      float: left;
+    }
+    // 矢印右用
+    &__comment {
+      background-color: $beige;
+      float: left;
+      &:before {
+        left:-15px;
+        border-right: 15px solid $beige;
+      }
+    }
+  }
+  .reply {
+    width: 100%;
+    margin-bottom: 5px;
+    // アイコン左
+    &__prof {
+      float: right;
+      margin-left: 20px;
+    }
+    &__comment {
+      float: right;
+      &:before {
+        right: -15px;
+        border-left: 15px solid $beige;
+      }
+    }
+  }
+  // コメント共通
+  .comment {
+    position: relative;
+    padding: 10px 15px 5px 15px;
+    width: 82%;
+    margin-left: 20px;
+    border: 3px solid $beige;
+    border-radius: 5px;
+    // 矢印共通部分
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      top: 5px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+    }
+    &__time {
+      margin-top: 10px;
+      margin-right: -10px;
+      text-align: right;
+      font-size: 10px;
+      color: $darkGray;
+    }
+  }
+
+  .replyButton {
+    padding: 5px 10px;
+    float: right;
+    background-color: $twitter;
+    color: white;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+}
+

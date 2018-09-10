@@ -51,7 +51,12 @@
       .recipeMate.recipeInfoBox.margin
         %h6.recipeInfoBox__title 使用した材料
         %ul.recipeInfoBox__contents
-          %li トンカツ
+          %li
+            トンカツ
+            %a.affiLink
+              %image.affiLink__img{src:'/assets/katsu1.jpg'}
+              %p.affiLink__name いい感じの豚骨
+              %p.affiLink__price ¥2,000
           %li 卵
       .recipeMate.recipeInfoBox
         %h6.recipeInfoBox__title 使用した工具
@@ -105,33 +110,68 @@
       %p.recipeDate
         公開日：18/9/4　更新日：18/9/5
       .recipeBoard
-        .post.clearfix
-          %a{href: '#'}
-            %image.post__pic{src: '/assets/katsu1.jpg'}
-          %a.post__name{href: '#'} そばめし
-          %p.post__date 投稿：18/9/4
-          .post__content
-            %p なんで家具じゃなくてカツ丼なんですか？
-          %a.post__replyButton{href:''}
+        %h4.title 
+          =fa_icon 'question-circle'
+          質問掲示板
+        .posts
+          .question.clearfix
+            %a.prof.question__prof{href:'#'}
+              %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+              %p.name そばめし
+            .comment.question__comment
+              %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+              %p.comment__time 投稿:18/09/01 10:23
+          .reply.clearfix
+            %a.prof.reply__prof{href:'#'}
+              %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
+            .comment.reply__comment
+              %p そうなんだあああああああああああああああああああああああああああああああああ
+              %p.comment__time 投稿:18/09/01 10:24
+          %a.replyButton{href:''}
             =fa_icon 'reply'
             返信する
-        .post.clearfix
-          %a{href: '#'}
-            %image.post__pic{src: '/assets/katsu1.jpg'}
-          %a.post__name{href: '#'} そばめし
-          %p.post__date 投稿：18/9/4
-          .post__content
-            %p なんで家具じゃなくてカツ丼なんですか？
-          %a.post__replyButton{href:''}
+        .posts
+          .question.clearfix
+            %a.prof.question__prof{href:'#'}
+              %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+              %p.name そばめし
+            .comment.question__comment
+              %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+              %p.comment__time 投稿:18/09/01 10:23
+          .reply.clearfix
+            %a.prof.reply__prof{href:'#'}
+              %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
+            .comment.reply__comment
+              %p そうなんだあああああああああああああああああああああああああああああああああ
+              %p.comment__time 投稿:18/09/01 10:24
+          %a.replyButton{href:''}
             =fa_icon 'reply'
             返信する
-        .post.clearfix
-          %a{href: '#'}
-            %image.post__pic{src: '/assets/katsu1.jpg'}
-          %a.post__name{href: '#'} そばめし
-          %p.post__date 投稿：18/9/4
-          .post__content
-            %p なんで家具じゃなくてカツ丼なんですか？
-          %a.post__replyButton{href:''}
+
+        .posts
+          .question.clearfix
+            %a.prof.question__prof{href:'#'}
+              %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+              %p.name そばめし
+            .comment.question__comment
+              %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+              %p.comment__time 投稿:18/09/01 10:23
+          .reply.clearfix
+            %a.prof.reply__prof{href:'#'}
+              %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
+            .comment.reply__comment
+              %p そうなんだああああああああああああああああああああああああああ青rじゃいrj技青gjらおrあああああああああああああああああああ
+              %p.comment__time 投稿:18/09/01 10:24
+          .question.clearfix
+            %a.prof.question__prof{href:'#'}
+              %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+              %p.name そばめし
+            .comment.question__comment
+              %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+              %p.comment__time 投稿:18/09/01 10:23            
+          %a.replyButton{href:''}
             =fa_icon 'reply'
-            返信する                        
+            返信する
+
+
+
