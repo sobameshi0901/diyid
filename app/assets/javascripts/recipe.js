@@ -22,16 +22,23 @@ $(function(){
       });
     });
 
-  // $('.amazonButton').on('click', function(){
-  //   $('.affiLink').show();
-  //   $(this).addClass('closeButton')
-  //   $(this).text('閉じる')
-  // });
+  $('.recipeBoardButton').each(function() {
+      var elements = $(this);
+      var defaultText = elements.text();
+      var count = 0;
+      elements.click(function() {
+        if ( count === 0 ){
+          $('.posts').slideDown();
+          elements.text('閉じる')
+          count = 1;
+        } else{
+          elements.text(defaultText);
+          $('.posts').slideUp();
+          elements.text(defaultText)
+          count = 0;
+        }
+      });
+    });
 
-  // $('.recipe').on('click', '.closeButton', function() {
-  //   $('.affiLink').hide();
-  //   $(this).removeClass('closeButton')
-  //   $(this).text('Amazonで購入する')
-  //   console.log('閉じたった')
-  // });
+
 })

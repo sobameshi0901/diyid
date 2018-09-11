@@ -3,6 +3,7 @@
     .recipePankuzu
       %p トップ　＞　家具・照明　＞　トンカツ風の机
     %h3.recipeTitle トンカツ風の机
+    %a.recipeAuthor{href:'#'} 投稿者：そばめし
     .recipeFavo.clearfix
       .recipeFavo__like 
         =fa_icon 'heart'
@@ -137,7 +138,8 @@
       .recipeBoard
         %h4.title 
           =fa_icon 'question-circle'
-          質問掲示板
+          質問掲示板(7件)
+        %p.recipeBoardButton 掲示板を開く
         .posts
           .question.clearfix
             %a.prof.question__prof{href:'#'}
