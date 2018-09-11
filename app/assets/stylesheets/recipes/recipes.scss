@@ -1,0 +1,431 @@
+.contentInner {
+  height: 100vh;
+  width: 980px;
+  margin: 0 auto;
+  padding-top: 20px;
+
+}
+
+.mainContents {
+  width: 740px;
+  float: left;
+}
+
+.content {
+  margin-bottom: 25px;
+  border: 1px solid $lightGray;
+  border-radius: 3px;
+  background-color: white;
+  .leftContent {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  .rightContent {
+    float: right;
+    width: 50%;
+    padding: 10px;
+  }
+  .mainTitle {
+    padding:10px;
+    border-radius: 3px 3px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px double $lightGray;
+  }
+  .subTitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: none;
+    font-size: 16px;
+    border-bottom: 4px double $lightGray;
+    background-color: white;
+  }
+  a {
+    color: $black;
+    &:hover {
+      color: $orange;
+      opacity: 0.7;
+    }
+  }
+}
+.bigThumRecipes {
+  
+}
+.bigThumRecipe {
+  width: 33%;
+  padding: 5px;
+  float: left;
+  &__image {
+    width: 100%;
+  }
+  &__title {
+    margin: 10px 5px;
+    font-size: 18px;
+  }
+  &__user {
+    margin: 0 5px;
+    font-size: 13px;
+  }
+  a:hover {
+    .bigThumRecipe {
+      &__image {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.mainThumRecipe {
+  width: 100%;
+  height: 300px;
+  padding: 3px;
+  &__image {
+    width: 100%;
+    height: 220px;
+    border-radius: 3px;
+    object-fit:cover;
+  }
+  &__title {
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  &__explain {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  &__user {
+    margin-top: 10px;
+    font-size: 12px;
+    color: $darkRed;
+  }
+}
+
+
+
+
+.subThumRecipe {
+  width: 33%;
+  height: 180px;
+  padding: 0px 3px 3px;
+  float: left;
+  position: relative;
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+    border-radius: 2px;
+  }
+  &__title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+  }
+  &__explain {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+  &:hover {
+    .subThumRecipe {
+      &__image {
+        opacity: 0.7
+      }
+      &__title, &__explain {
+        color: $orange;
+      }
+    }
+  }
+  .rank {
+    width: 35px;
+    position: absolute;
+    top: 2px;
+    left:5px;
+    z-index: 10;
+  }
+}
+
+// 関連レシピのサムネは上のから必要部分のみ調整
+.midThumRecipes {
+  width: 100%;
+  .subThumRecipe {
+    width: 24%;
+    height: 190px;
+    &__image {
+      width: 100%;
+      height: 170px;
+    }
+  }
+}
+.recipe {
+
+}
+
+.recipePankuzu {
+  font-size: 14px;
+}
+
+.recipeTitle {
+  margin: 20px 0 10px;
+  padding-left: 15px;
+  border-left: 10px solid $black;
+  font-size: 30px;
+}
+
+.recipeAuthor {
+  margin-top: 200px;
+  font-size: 15px;
+  color: $darkGray;
+}
+
+
+.recipeFavo {
+  margin-top: 15px;
+  div {
+    float: left;
+    display: inline-block;
+    float: left;
+    width: 16%;
+    margin-right: 3%;
+    padding: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    p {
+      display: inline;
+      font-size: 14px;
+      font-weight: bold;
+      padding-top: 7px;
+    }
+  }
+  &__like {
+    border: 2px solid $red;
+    color: $red;
+    &:hover {
+      background-color: $red;
+      color: white;
+    }
+  }
+  &__favo {
+    border: 2px solid $orange;
+    color: $orange;
+    &:hover {
+      background-color: $orange;
+      color: white;
+    }
+  }
+  &__facebook {
+    background-color: $facebook;
+    border: 2px solid $facebook;
+    color: white;
+    &:hover {
+      color:$facebook;
+      background-color: white;
+    }
+  }
+  &__twitter {
+    background-color: $twitter;
+    color: white;
+    border: 2px solid $twitter;
+    &:hover {
+      color: $twitter;
+      background-color: white;
+    }
+  }
+  .noMarginRight {
+    margin-right: 0;
+  }
+}
+
+
+.recipeTop {
+  margin-top: 20px;
+  width: 100%;
+  .recipePhoto {
+    width: 50%;
+    float: left;
+    border-radius: 5px;
+  }
+
+  .recipeDetail {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+    min-height: 370px;
+    position: relative;
+
+    h6 {
+      font-size: 18px;
+      padding: 0 0 5px 3px;
+      margin-bottom: 30px;
+      border-bottom: 1px dotted $gray;
+      color: $darkGray;
+      span {
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+    .comment {
+      margin-bottom:10px;
+    }
+    p {
+      padding-left: 5px;
+      font-size: 15px;
+    }
+    .tags {
+      position: absolute;
+      bottom: 0;
+      h6{
+        margin-bottom: 0;
+      }
+     a{
+      display: inline-block;
+      padding: 4px;
+      margin-top: 10px;
+      border: 1px solid $gray;
+      font-size: 12px;
+      color: $facebook;
+     }
+   }
+  }
+}
+
+
+.recipeInfoBox {
+    border: 1px solid $brown;
+    border-radius: 2px;
+    &__title {
+      border-bottom: 1px dotted $brown;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: $beige;
+      color: $brown;
+    }
+    // 箇条書きの場合
+    &__contents {
+      padding: 10px 20px;
+      list-style: square;
+      li {
+        margin-bottom: 9px;
+      }
+    }
+    // コメントなど一要素のみ
+    &__content {
+      padding: 10px 20px;
+    }
+}
+
+.recipeMates {
+  margin-top: 40px;
+    width: 100%;
+    display: table;
+    border-collapse: separate;  /* セルの間隔を空ける */
+    border-spacing: 10px 0;  /* 左右 上下で記述 */
+  .recipeMate {
+    display: table-cell;
+  }
+  .margin {
+    margin-right: 4%;
+  }
+}
+
+.affiTitle:hover {
+  background-color: $beige;
+}
+
+.affiLink {
+  display: none;
+  width: 100%;
+  &__img {
+    display: inline-block;
+    width: 50px;
+  }
+  &__name {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    max-width: 60%;
+  }
+  &__price {
+    display: inline-block;
+    font-size: 14px;
+  }
+}
+
+.amazonButton {
+  display: block;
+  width: 30%;
+  height: 35px;
+  padding-top: 10px;
+  margin: 10px auto 0;
+  text-align: center;
+  background-color: $amazon;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow:  0 4px $brown;
+  cursor: pointer;
+  &:active {
+    opacity: 0.7;
+    box-shadow: none;
+    position: relative;
+    top: 4px;
+  }
+}
+
+.recipeSteps {
+  width: 100%;
+  margin-top: 40px;
+  .recipeStep {
+    display: inline-block;
+    width: 32%;
+    padding: 15px 10px;
+    &__stepNum {
+      border-bottom: 3px double $gray;
+      font-weight: bold;
+      font-size: 15px;
+      color: $brown;
+      padding-left: 10px;
+      span {
+        font-size: 22px;
+      }
+    }
+    &__stepDetail{
+      height: 100%;
+      width: 100%;
+      float: left;
+      &__comment {
+        font-size: 15px;
+        line-height: 19px;
+      }
+      &__pic {
+        height: 100%;
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.recipePoint {
+  width: 97%;
+  margin: 30px auto 0;
+}
+
+.recipeDate {
+  margin: 10px 20px 0 0;
+  text-align:right;
+  font-size: 12px;
+  color: $darkGray;
+}
+
+.relatedRecipe {
+  border-top: 1px dotted
+   $gray;
+  text-align: center;
+  display: block;
+  font-size: 25px;
+  margin: 30px auto 10px;
+  padding-top: 20px;
+}

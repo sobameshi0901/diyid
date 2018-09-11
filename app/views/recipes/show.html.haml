@@ -1,0 +1,99 @@
+.clearfix
+  .recipe
+    .recipePankuzu
+      %p トップ　＞　家具・照明　＞　トンカツ風の机
+    %h3.recipeTitle トンカツ風の机
+    %a.recipeAuthor{href:'#'} 投稿者：そばめし
+    .recipeFavo.clearfix
+      .recipeFavo__like 
+        =fa_icon 'heart'
+        %p いいね
+      .recipeFavo__favo
+        =fa_icon 'star'
+        %p お気に入り
+      .recipeFavo__facebook
+        =fa_icon 'facebook-square'
+        %p シェアする
+      .recipeFavo__twitter.noMarginRight
+        =fa_icon 'twitter-square'
+        %p ツイートする
+    .recipeTop.clearfix
+      %image.recipePhoto{src: '/assets/katsu1.jpg'}
+      .recipeDetail
+        %h6
+          制 作 費 用：
+          %span<> 20,000円
+        %h6
+          制 作 時 間：
+          %span<> 6年
+        %h6
+          完成サイズ：
+          %span<> h200xw200xd200
+        %h6.comment ひとこと
+        %p なんかとっても暇だったので、ちょっと作ってみました。豚を倒すのがちょっと難しかったかな。
+        .tags
+          %h6.comment タグ一覧
+          %a{href: '#'}
+            =fa_icon 'tag'
+            トンカツ
+          %a{href: '#'}
+            =fa_icon 'tag'
+            時短レシピ
+          %a{href: '#'}
+            =fa_icon 'tag'
+            千円以下
+          %a{href: '#'}
+            =fa_icon 'tag'
+            嫁に欲しい
+          %a{href: '#'}
+            =fa_icon 'tag'
+            何かよくわからない
+    .recipeMates
+      .recipeMate.recipeInfoBox.margin
+        %h6.recipeInfoBox__title 使用した材料
+        %ul.recipeInfoBox__contents
+          %li.affiTitle
+            %p トンカツううううううううううううううう
+            %a.affiLink.clearfix{href:'#'}
+              %image.affiLink__img{src:'/assets/katsu1.jpg'}
+              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+              %p.affiLink__price ¥2,000
+          %li.affiTitle
+            %p 卵
+            %a.affiLink.clearfix{href:'#'}
+              %image.affiLink__img{src:'/assets/katsu1.jpg'}
+              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+              %p.affiLink__price ¥2,000
+      .recipeMate.recipeInfoBox
+        %h6.recipeInfoBox__title 使用した工具
+        %ul.recipeInfoBox__contents
+          %li.affiTitle
+            %p おたまああああああああああああああ
+            %a.affiLink.clearfix{href:'#'}
+              %image.affiLink__img{src:'/assets/katsu1.jpg'}
+              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+              %p.affiLink__price ¥2,000
+          %li.affiTitle
+            %p おたまああああああああああああああ
+            %a.affiLink.clearfix{href:'#'}
+              %image.affiLink__img{src:'/assets/katsu1.jpg'}
+              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+              %p.affiLink__price ¥2,000
+          %li.affiTitle
+            %p 伝説の包丁
+            %a.affiLink.clearfix{href:'#'}
+              %image.affiLink__img{src:'/assets/katsu1.jpg'}
+              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+              %p.affiLink__price ¥2,000
+          %li.affiTitle
+            %p ボウル
+            %a.affiLink.clearfix{href:'#'}
+              %image.affiLink__img{src:'/assets/katsu1.jpg'}
+              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+              %p.affiLink__price ¥2,000
+    %a.amazonButton
+      =fa_icon 'amazon'
+      Amazonで購入する
+    =render 'show_steps'
+    =render 'show_post'
+    =render 'show_related_recipes'
