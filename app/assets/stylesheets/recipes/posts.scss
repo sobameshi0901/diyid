@@ -3,6 +3,7 @@
   width: 100%;
   margin-top: 30px;
   padding: 2%;
+  border-top: 1px dotted $gray;
   text-align: center;
   .title {
     font-size: 25px;
@@ -13,6 +14,31 @@
 .recipeBoardButton {
   text-decoration: underline;
   font-size: 18px;
+}
+
+
+.postForm {
+  margin-top: 10px;
+  width: 100%;
+  &__content {
+    display: block;
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  &__send {
+    display: block;
+    width: 30%;
+    margin: 10px auto 20px;
+    padding: 5px 8px; 
+    border-radius: 5px;
+    background-color: $twitter;
+    font-size: 14px;
+    color: white;
+  }
 }
 
 .posts {
@@ -108,4 +134,3 @@
     border-radius: 5px;
   }
 }
-

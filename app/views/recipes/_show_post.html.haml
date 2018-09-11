@@ -1,0 +1,72 @@
+.recipeBoard
+  %h4.title 
+    =fa_icon 'question-circle'
+    質問掲示板(7件)
+    %form.postForm{:action => "/", :method => "post"}
+      %input.postForm__content{name: 'content', placeholder: '質問内容を記入してください。（最大３００文字）'}
+      %input.postForm__send{type: "submit", value: "SEND"}
+
+  %p.recipeBoardButton 掲示板を開く
+  .posts
+    .question.clearfix
+      %a.prof.question__prof{href:'#'}
+        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+        %p.name そばめし
+      .comment.question__comment
+        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+        %p.comment__time 投稿:18/09/01 10:23
+    .reply.clearfix
+      %a.prof.reply__prof{href:'#'}
+        %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
+      .comment.reply__comment
+        %p そうなんだあああああああああああああああああああああああああああああああああ
+        %p.comment__time 投稿:18/09/01 10:24
+    %a.replyButton{href:''}
+      =fa_icon 'reply'
+      返信する
+  .posts
+    .question.clearfix
+      %a.prof.question__prof{href:'#'}
+        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+        %p.name そばめし
+      .comment.question__comment
+        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+        %p.comment__time 投稿:18/09/01 10:23
+    .reply.clearfix
+      %a.prof.reply__prof{href:'#'}
+        %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
+      .comment.reply__comment
+        %p そうなんだあああああああああああああああああああああああああああああああああ
+        %p.comment__time 投稿:18/09/01 10:24
+    %a.replyButton{href:''}
+      =fa_icon 'reply'
+      返信する
+
+  .posts
+    .question.clearfix
+      %a.prof.question__prof{href:'#'}
+        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+        %p.name そばめし
+      .comment.question__comment
+        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+        %p.comment__time 投稿:18/09/01 10:23
+    .reply.clearfix
+      %a.prof.reply__prof{href:'#'}
+        %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
+      .comment.reply__comment
+        %p そうなんだああああああああああああああああああああああああああ青rじゃいrj技青gjらおrあああああああああああああああああああ
+        %p.comment__time 投稿:18/09/01 10:24
+    .question.clearfix
+      %a.prof.question__prof{href:'#'}
+        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
+        %p.name そばめし
+      .comment.question__comment
+        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+        %p.comment__time 投稿:18/09/01 10:23            
+    %a.replyButton{href:''}
+      =fa_icon 'reply'
+      返信する
+
+
+
+
