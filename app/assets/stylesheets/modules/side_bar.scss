@@ -5,59 +5,142 @@
 .sideContents {
   width: 230px;
   float: right;
-  background-color: $lightGray;
-
+  border: 1px solid $lightGray;
+  padding: 30px 10px;
+  border-radius: 3px;
 }
 
 .sideContent {
-  margin-bottom: 10px;
-  border-radius: 3px;
-  padding: 10px;
-  .sideContentTitle {
-    font-size: 20px;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px dotted $gray;
+  &__title {
+    font-size: 22px;
+    margin-bottom: 15px;
   }
 }
 
-.searchAreaSide {
-  .title {
 
+.searchBox {
+  width: 100%;
+  position: relative;
+  &__input {
+    width:100%;
+    height: 40px;
+    border-radius: 3px;
+    border:2px solid $lightGray;
+    padding-left: 10px;
+    font-size: 12px;
+    margin-bottom: 15px;
   }
-  .searchBox {
-    margin-top: 10px;
-    width: 100%;
-    padding-left: 0;
-    padding-bottom: 20px;
+  &__button {
+    height: 40px;
+    width: 65px;
+    position: absolute;
+    top: 0;
+    right:0;
+    margin-right: 0;
+    padding: 1px;
+    border-radius: 0 3px 3px 0;
+    color: white;
+    background-color: $darkGray;
+    opacity: 0.9;
+    font-size: 13px;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      border: none;
+      font-size: 14px;
+    }
   }
-  .searchGenres {
-    padding-top: 15px;
+  &__recommendWord {
+    padding-top: 5px;
+    span {
+      font-size: 12px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+    a {
+      margin-top: 5px;
+      font-size: 12px;
+      color: $black;
+      border: 1px solid $lightGray;
+      padding: 3px;
+    &:hover {
+      font-weight: bold;
+      color: darkRed;
+    }
+    }
+  }
+}
+
+.searchGenres {
+  padding-top: 5px;
+  .genreWrapper {
+    width: 48%;
+    display: inline-block;
     text-align: center;
-    .genreWrapper {
-
+    margin-bottom: 5px;
+  }
+  .genre {
+    width: 100%;
+    height: 52px;
+    border: 1px solid $gray;
+    border-radius: 3px;
+    color: $darkGray;
+    h4 {
+      display: block;
+      font-size: 12px;
     }
-    .genre {
-      padding: 5px;
-      width: 100%;
-      height: 52px;
-      border: 1px dotted $lightGray;
-      color: $darkGray;
-      h4 {
-        margin-top: 18px;
-        margin-left: 20px;
-        font-size: 18px;
-        float: left;
-      }
-      i {
-        margin-left: 10px;
-        float: left;
-      }
-      &:hover {
-        color: white;
-        background-color: $darkGray;
-        border: none;
-      }
+    i {
+      margin-left: 10px;
+      display: block;
+    }
+    &:hover {
+      color: white;
+      background-color: $darkGray;
+      border: none;
     }
   }
 }
+
+
+.searchCategories {
+  padding-top: 15px;
+  .categoryBlock{
+  }
+  .category {
+    padding: 5px;
+    width: 100%;
+    border: 1px dotted $lightGray;
+    color: $darkGray;
+    h4 {
+      display: inline-block;
+      font-size: 24px;
+      margin-left: 10px;
+    }
+    i {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    &:hover {
+      color: white;
+      background-color: $darkGray;
+      border: none;
+    }
+  }
+  .smallCategory {
+    display: none;
+    padding-left: 20px;
+    h4 {
+      font-size: 18px;
+      margin-left: 18px;
+    }
+  }
+
+}
+
 
 .sideRecipe {
   &__image {
