@@ -18,7 +18,7 @@ header {
 
 .searchArea {
   float: left;
-  width: calc(100% - 400px);
+  width: calc(100% - 500px);
 }
 
 .searchBox {
@@ -74,7 +74,7 @@ header {
 
 .rightContents {
   height: 100px;
-  width: 200px;
+  width: 300px;
   float: right;
   ul {
     height: 100%;
@@ -85,6 +85,8 @@ header {
     float: right;
     text-align: center;
     font-size: 12px;
+    background-color: #fff;
+    border-left: 1px solid $lightGray;
   }
   a {
     box-sizing: border-box;
@@ -114,6 +116,16 @@ header {
       &:hover {
         background-color: $orange;
         color: white;
+      }
+    }
+  }
+  .newPost {
+    border-bottom:  5px solid $facebook;
+    a {
+      color: $facebook;
+      &:hover {
+      background-color: $facebook;
+      color:white;
       }
     }
   }
