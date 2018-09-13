@@ -1,0 +1,26 @@
+.recipeForm
+  = form_for @recipe do |f|
+    .recipeForm__name
+      =f.label :name, '名前'
+      %br
+      =f.text_field :name, placeholder: '名前'
+    .recipeForm__point
+      =f.label :comment, 'コメント'
+      %br
+      =f.text_field :comment, placeholder: 'このレシピのコメント'
+    .recipeForm__build_time
+      =f.label :build_time, '制作時間'
+      %br
+      =f.text_field :build_time, placeholder: '制作時間'
+    .recipeForm__cost
+      =f.label :cost, '制作費用'
+      %br
+      =f.text_field :cost,placeholder: '制作費用'
+    .recipeForm__size
+      =f.label :size, '完成サイズ'
+      %br
+      =f.text_field :size, placeholder: '完成サイズ'
+    .recipeForm__point
+      =f.label :point, '製作時のポイント'
+      %br
+      =f.text_field :point, placeholder: '製作時のポイント'

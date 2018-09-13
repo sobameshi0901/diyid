@@ -4,4 +4,8 @@ class RecipesController < ApplicationController
 
   def show
   end
+
+  def new
+    @recipe = Recipe.new
+  end
 end
