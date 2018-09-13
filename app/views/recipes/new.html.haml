@@ -24,3 +24,12 @@
       =f.label :point, '製作時のポイント'
       %br
       =f.text_field :point, placeholder: '製作時のポイント'
+    .recipeForm__category
+      =f.label :category_id, 'カテゴリ'
+      %br
+      =f.select :category_id, [['1', '1']]
+    .recipeForm__image
+      =f.label :image, '画像'
+      =f.file_field :image
+    .recipeForm__send
+      =f.submit '送ります'
