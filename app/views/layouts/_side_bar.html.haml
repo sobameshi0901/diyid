@@ -1,85 +1,174 @@
 .sideContent.searchAreaSide.clearfix
-  %h2.sideContentTitle カテゴリーで探す
-  .searchBox.searchGenres
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+  %h2.sideContent__title.titleTop 
+    =fa_icon 'search'
+    キーワードで探す
+  %form.searchBox
+    %input.searchBox__input{name: "search", type: "text", placeholder: "名前・材料で検索"}
+    %button.searchBox__button{type: "submit"}
+      = fa_icon 'search'
+      検索
+    .searchBox__recommendWord
+      %span 人気キーワード：
+      = link_to "ヒノキ", "#"
+      = link_to "テーブル",'#'
+      = link_to "トイレ周り", '#'
+.sideContent.searchGenres
+  %h2.sideContent__title 
+    =fa_icon 'indent'
+    ジャンルで探す
+  .genreWrapper
+    .genre
+      =fa_icon 'twitter 2x'
+      %h4 ツイッタ
+  .genreWrapper
+    .genre
+      =fa_icon 'twitter 2x'
+      %h4 ツイッタ
+  .genreWrapper
+    .genre
+      =fa_icon 'twitter 2x'
+      %h4 ツイッタ
+  .genreWrapper
+    .genre
+      =fa_icon 'twitter 2x'
+      %h4 ツイッタ
+  .genreWrapper
+    .genre
+      =fa_icon 'twitter 2x'
+      %h4 ツイッタ
+  .genreWrapper
+    .genre
+      =fa_icon 'twitter 2x'
+      %h4 ツイッタ                
+.sideContent.searchCategories
+  %h2.sideContent__title
+    =fa_icon 'list'
+    カテゴリで探す
+  .categoryBlock
+    .largeCategory.category
+      = link_to '#' do
+        = fa_icon 'bars 2x'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+  .categoryBlock
+    .largeCategory.category
+      = link_to '#' do
+        = fa_icon 'bars 2x'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+  .categoryBlock
+    .largeCategory.category
+      = link_to '#' do
+        = fa_icon 'bars 2x'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
-    = link_to '#' do
-      .genre
-        = fa_icon 'bars 3x'
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
         %h4 カテゴリ別
+  .categoryBlock
+    .largeCategory.category
+      = link_to '#' do
+        = fa_icon 'bars 2x'
+        %h4 カテゴリ別
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
+        %h4 カテゴリ別
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
+        %h4 カテゴリ別
+    .smallCategory.category
+      = link_to '#' do
+        = fa_icon 'bars'
+        %h4 カテゴリ別
+
 
 .sideContent.dailyRank.clearfix
-  %h2.sideContentTitle デイリーランキング
-  = link_to href: "#", class: "sideThumRecipe claerfix" do
-    %image.sideThumRecipe__image{src: '/assets/katsu7.jpg'}
-    %p.sideThumRecipe__rank 1位
-    %p.sideThumRecipe__title スーパーカツ丼
-    %p.sideThumRecipe__user そばめしさん
-  %a.sideThumRecipe
-    %image.sideThumRecipe__image{src: '/assets/katsu7.jpg'}
-    %p.sideThumRecipe__rank 1位
-    %p.sideThumRecipe__title スーパーカツ丼
-    %p.sideThumRecipe__user
-  .sideThumRecipe
-    %image.sideThumRecipe__image{src: '/assets/katsu7.jpg'}
-    %p.sideThumRecipe__rank 1位
-    %p.sideThumRecipe__title スーパーカツ丼
-    %p.sideThumRecipe__user
-  .sideThumRecipe
-    %image.sideThumRecipe__image{src: '/assets/katsu7.jpg'}
-    %p.sideThumRecipe__rank 1位
-    %p.sideThumRecipe__title スーパーカツ丼
-    %p.sideThumRecipe__user
-  .sideThumRecipe
-    %image.sideThumRecipe__image{src: '/assets/katsu7.jpg'}
-    %p.sideThumRecipe__rank 1位
-    %p.sideThumRecipe__title スーパーカツ丼
-    %p.sideThumRecipe__user                
+  %h2.sideContent__title 
+    = fa_icon 'anchor'
+    ランキング
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu7.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu1.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu2.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu3.jpeg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu4.jpeg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu5.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
 
-
+.sideContent.dailyRank.clearfix
+  %h2.sideContent__title
+    =fa_icon 'anchor'
+    新着レシピ
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu7.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu1.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu2.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu3.jpeg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu4.jpeg'}
+      %p.subThumRecipe__title すげぇカツ丼
+  .subThumRecipe
+    = link_to '#' do
+      %image.subThumRecipe__image{src: '/assets/katsu5.jpg'}
+      %p.subThumRecipe__title すげぇカツ丼
 
