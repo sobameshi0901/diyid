@@ -1,4 +1,5 @@
 .recipeForm
+  %h4 基本情報
   = form_for @recipe do |f|
     .recipeForm__name
       =f.label :name, '名前'
@@ -33,3 +34,44 @@
       =f.file_field :image
     .recipeForm__send
       =f.submit '送ります'
+    %h4 レシピ
+    = f.fields_for :material do |m|
+      .mateForm
+        .material
+          %h5 工具
+          .mateForm__name
+            = m.label :name, 'タイトル'
+            = m.text_field :name
+            = m.text_field :category, value: '0'
+          .mateForm__name
+            = m.label :name, 'タイトル'
+            = m.text_field :name
+            = m.text_field :category, value: '0'
+          .mateForm__name
+            = m.label :name, 'タイトル'
+            = m.text_field :name
+            = m.text_field :category, value: '0'
+        .tool
+          %h5 材料
+          .mateForm__name
+            = m.label :name, 'タイトル'
+            = m.text_field :name
+            = m.text_field :category, value: '1'
+          .mateForm__name
+            = m.label :name, 'タイトル'
+            = m.text_field :name
+            = m.text_field :category, value: '1'
+          .mateForm__name
+            = m.label :name, 'タイトル'
+            = m.text_field :name
+            = m.text_field :category, value: '1'
+    = f.fields_for :step do |s|
+      .stepForm
+        %h4 作成工程
+        .stepForm__content
+          = s.label :content, '説明'
+          = s.text_field :content
+        .stepForm__image
+          = s.label :image, '画像'
+          = s.text_field :image
+
