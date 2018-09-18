@@ -1,3 +1,3 @@
 class Material < ApplicationRecord
-  blongs_to :recipe
+  belongs_to :recipe
 end
