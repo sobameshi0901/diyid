@@ -1,16 +1,5 @@
 %header
   %image.logo{src: '/assets/DSC_0295.JPG'}
-  / .searchArea
-  /   %form.searchBox
-  /     %input.searchBox__input{name: "search", type: "text", placeholder: "食材・料理名を入力してください"}
-  /     %button.searchBox__button{type: "submit"}
-  /       = fa_icon 'search'
-  /       検索
-  /     .searchBox__recommendWord
-  /       %span 人気キーワード：
-  /       = link_to "ヒノキ", "#"
-  /       = link_to "テーブル",'#'
-  /       = link_to "トイレ周り", '#'
   .rightContents
     %ul
       %li.signOut
@@ -18,7 +7,7 @@
       %li.myPage
         = link_to "ログイン", "#"
       %li.newPost
-        = link_to "レシピを投稿", "#"
+        = link_to "レシピを投稿", new_recipe_path
 .globalNav
   .navContents
     %ul
