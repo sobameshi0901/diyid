@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to: controller: :recipes, action: :index @recipe
+      redirect_to controller: 'materials', action: 'new', recipe_id: @recipe.id
     else
       render :new
     end

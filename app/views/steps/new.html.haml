@@ -1,2 +1,37 @@
-%h1 Steps#new
-%p Find me in app/views/steps/new.html.haml
+=form_for [@recipe, @step] do |f|
+  .stepForms
+    .stepForm
+      %h4 作成工程
+      .stepForm__content
+        = f.label :content, '説明'
+        = f.text_field :content
+      .stepForm__image
+        = f.label :image, '画像'
+        = f.file_field :image
+    .stepForm
+      %h4 作成工程
+      .stepForm__content
+        = f.label :content, '説明'
+        = f.text_field :content
+      .stepForm__image
+        = f.label :image, '画像'
+        = f.file_field :image
+    .stepForm
+      %h4 作成工程
+      .stepForm__content
+        = f.label :content, '説明'
+        = f.text_field :content
+      .stepForm__image
+        = f.label :image, '画像'
+        = f.file_field :image
+    .stepForm
+      %h4 作成工程
+      .stepForm__content
+        = f.label :content, '説明'
+        = f.text_field :content
+      .stepForm__image
+        = f.label :image, '画像'
+        = f.file_field :image
+  .stepForm__send
+    =f.submit '送ります'
+
