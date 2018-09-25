@@ -10,6 +10,9 @@ class RecipesController < ApplicationController
     6.times {
       @recipe.steps.build
     }
+    6.times {
+      @recipe.materials.build
+    }
   end
 
   def create
@@ -25,6 +28,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :comment, :build_time, :cost, :size, :point,:image, :category_id, steps_attributes: [:content, :image])
+    params.require(:recipe).permit(:name, :comment, :build_time, :cost, :size, :point, :image, :category_id, steps_attributes: [:content, :image], materials_attributes: [:name, :category])
   end
 end
