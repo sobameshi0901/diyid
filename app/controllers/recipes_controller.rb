@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     binding.pry
     if @recipe.save
-      redirect_to controller: 'materials', action: 'new', recipe_id: @recipe.id
+      redirect_to @recipe
     else
       render :new
     end
