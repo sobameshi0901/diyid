@@ -1,6 +1,6 @@
-.recipeForm
+= form_for @recipe do |f|
   %h4 基本情報
-  = form_for @recipe do |f|
+  .recipeForm
     .recipeForm__name
       =f.label :name, '名前'
       %br
@@ -34,3 +34,13 @@
       =f.file_field :image
     .recipeForm__send
       =f.submit '送ります'
+  = f.fields_for :steps do |m|
+    .stepForms
+      .stepForm
+        %h4 作成工程
+        .stepForm__content
+          = m.label :content, '説明'
+          = m.text_field :content
+        .stepForm__image
+          = m.label :image, '画像'
+          = m.file_field :image
