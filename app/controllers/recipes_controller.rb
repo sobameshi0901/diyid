@@ -8,16 +8,11 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     6.times {
-      @recipe.steps.build
-    }
-    6.times {
-      @recipe.materials.build
-    }
+      @recipe.steps.build}
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    binding.pry
     if @recipe.save
       redirect_to @recipe
     else
@@ -27,6 +22,18 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @materials_mate = @recipe.materials.select {|mate| mate.category == 0}
+    @materials_tool = @recipe.materials.select { |mate| mate.category == 1}
+    @steps = @recipe.steps
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to @recipe
+    else
+      render :edit
+    end
   end
 
   private

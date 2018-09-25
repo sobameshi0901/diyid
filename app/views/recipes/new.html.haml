@@ -1,1 +1,60 @@
-=render 'form'
+= form_for @recipe do |f|
+  %h4 基本情報
+  .recipeForm
+    .recipeForm__name
+      =f.label :name, '名前'
+      %br
+      =f.text_field :name, placeholder: '名前'
+    .recipeForm__point
+      =f.label :comment, 'コメント'
+      %br
+      =f.text_field :comment, placeholder: 'このレシピのコメント'
+    .recipeForm__build_time
+      =f.label :build_time, '制作時間'
+      %br
+      =f.text_field :build_time, placeholder: '制作時間'
+    .recipeForm__cost
+      =f.label :cost, '制作費用'
+      %br
+      =f.text_field :cost,placeholder: '制作費用'
+    .recipeForm__size
+      =f.label :size, '完成サイズ'
+      %br
+      =f.text_field :size, placeholder: '完成サイズ'
+    .recipeForm__point
+      =f.label :point, '製作時のポイント'
+      %br
+      =f.text_field :point, placeholder: '製作時のポイント'
+    .recipeForm__category
+      =f.label :category_id, 'カテゴリ'
+      %br
+      =f.select :category_id, [['1', '1']]
+    .recipeForm__image
+      =f.label :image, '画像'
+      =f.file_field :image
+    .recipeForm__send
+      =f.submit '送ります'
+  %h4 作成工程
+  = f.fields_for :steps do |s|
+    .stepForms
+      .stepForm
+        .stepForm__content
+          = s.label :content, '説明'
+          = s.text_field :content
+        .stepForm__image
+          = s.label :image, '画像'
+          = s.file_field :image
+  .mateForm
+    .material
+      %h5 工具
+      - (0..5).each do |i|
+        .mateForm__name
+          %label{for: "recipe_materials_attributes_#{i}_name"} タイトル
+          %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name"}
+          %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none"}
+      %h5 材料
+      - (6..11).each do | i |
+        .mateForm__name
+          %label{for: "recipe_materials_attributes_#{i}_name"} タイトル
+          %input{tyep: 'text', name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name"}
+          %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none"}
