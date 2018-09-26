@@ -1,4 +1,5 @@
 = form_for @recipe do |f|
+  = render partial: 'shared/error_messages', locals: {instance: @recipe}
   %h4 基本情報
   .recipeForm
     .recipeForm__name

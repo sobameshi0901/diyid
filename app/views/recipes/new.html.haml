@@ -1,4 +1,5 @@
 = form_for @recipe do |f|
+  = render partial: 'shared/error_messages', locals: {instance: @recipe}
   %h4 基本情報
   .recipeForm
     .recipeForm__name
@@ -57,4 +58,4 @@
         .mateForm__name
           %label{for: "recipe_materials_attributes_#{i}_name"} タイトル
           %input{tyep: 'text', name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name"}
-          %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none"}
+          %input{type: "text", value: "1", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none"}
