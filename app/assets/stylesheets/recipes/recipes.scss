@@ -167,6 +167,7 @@
 
 
 // レシピの詳細・登録・編集ページ
+// 登録フォームについては、各クラス内にinputやtextareaを指定している
 .recipe {
 
 }
@@ -185,6 +186,17 @@
     width: 90%;
     padding: 5px;
     font-size: 25px;
+  }
+}
+
+.recipeCategory {
+  margin-top: 20px;
+  p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  select {
+    font-size: 18px;
   }
 }
 

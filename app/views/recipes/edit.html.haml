@@ -1,10 +1,16 @@
 = form_for @recipe do |f|
   / form_forで@recipeの状態によって遷移先を変更。stepとmaterialはnested_attributesの形で入力し、コントローラの処理でこれらも同時に登録する
   .recipe.clearfix
-    %h3.recipeTitle=f.text_field :name, placeholder: 'タイトルを入力　例：ヒノキの机'
+    %h3.recipeTitle=f.text_field :name, placeholder: 'タイトルを入力　　例：ヒノキの机'
     / トップ部分、タイトル、画像、レシピの詳細
+    .recipeCategory.clearfix
+      %p カテゴリを選択
+      / カテゴリを大カテゴリ→小カテゴリで表示
+      =f.grouped_collection_select(:category_id, LargeCategory.all, :categories, :name, :id, :name)
     .recipeTop.clearfix
       / 画像をクリックでファイル選択が開くよう、画像をlabel化、ファイル選択画面はdisplay:noneで表示しない
+      / =f.fields_for :materials do |m|
+      /   =m.text_field :name
       .recipePhoto
         =f.label :image do
           %image{src: '/assets/katsu1.jpg'}
@@ -22,7 +28,7 @@
           完成サイズ：
           %span=f.text_field :size, placeholder: '例：h200 x w200 x d200x'
         %h6.comment ひとこと
-        =f.text_area :comment, class: "commentForm", placeholder: 'このレシピのコメント'
+        =f.text_area :comment, class: "commentForm", placeholder: 'どのような目的で作ったか、使ってみてどうかなど、自由に入力してください。'
         / この部分は未完
         .tags
           %h6.comment タグ一覧
@@ -50,26 +56,28 @@
           -@materials_mate.each.with_index do |mate, i|
             %li.affiTitle
               / nested_attributesで保存されるようにname, id等を変更
-              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", value: "#{mate.name}", placeholder: "例：天板 高さ100x横幅250x厚さ50 １枚"}
+              %input{type: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", value: "#{mate.name}", placeholder: "例：天板 高さ100x横幅250x厚さ50 １枚"}
               %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
+              %input{type: "hidden",name: "recipe[materials_attributes][#{i}][id]", value: "#{mate.id}", id:"recipe_materials_attributes_#{i}_id"}
           / 値が登録されていない部分（最大６個）は空欄を入れるため、@materiasl_mateの個数から5までの範囲オブジェクトで繰り返し
           -((@materials_mate.length)..5).each do |i|
             %li.affiTitle
-              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：天板 高さ100x横幅250x厚さ50 １枚"}
+              %input{type: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：天板 高さ100x横幅250x厚さ50 １枚"}
               / valueは0＝材料で固定し、display:noneで表示させない
               %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
       .recipeMate.recipeInfoBox
         %h6.recipeInfoBox__title 使用した工具
         %ul.recipeInfoBox__contents
           / @material_mateと構造は一緒
-          -@materials_tool.each.with_index do |mate, i|
+          -@materials_tool.each.with_index(7) do |mate, i|
             %li.affiTitle
-              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", value: "#{mate.name}", placeholder: "例：電動ノコギリ"}
-              %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
+              %input{type: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", value: "#{mate.name}", placeholder: "例：電動ノコギリ"}
+              %input{type: "text", value: "1", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
+              %input{type: "hidden", name: "recipe[materials_attributes][#{i}][id]", value: "#{mate.id}", id:"recipe_materials_attributes_#{i}_id"}
           / 値が登録されていない部分（最大６個）は空欄を入れるため、@materiasl_mateの個数から5までの範囲オブジェクトで繰り返し
-          -((@materials_tool.length)..5).each do |i|
+          -((@materials_tool.length+11)..16).each do |i|
             %li.affiTitle
-              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：電動ノコギリ"}
+              %input{type: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：電動ノコギリ"}
               / valueは1=工具で固定し、display:noneで表示させない
               %input{type: "text", value: "1", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
   / レシピ作成手順入力画面
@@ -87,8 +95,9 @@
               =fa_icon 'facebook'
               %p 画像を登録する
             %input{type: "file", name: "recipe[steps_attributes][#{i}][image]", id: "recipe_steps_attributes_#{i}_image", style: "display:none;", class: "clearfix"}
-          %textarea{tyep: "text", name: "recipe[steps_attributes][#{i}][content]", id: "recipe_steps_attributes_#{i}_content", value: "#{step.content}", class: "recipeStep__stepDetail__comment",placeholder: "行程を入力                  例：角材を四つに切ります。"}
-    - ((@steps.length)..5).each do |i|
+          %textarea{tyep: "text", name: "recipe[steps_attributes][#{i}][content]", id: "recipe_steps_attributes_#{i}_content", value: "#{step.content}", class: "recipeStep__stepDetail__comment",placeholder: "行程を入力してください"}
+          %input{type: "hidden", name: "recipe[steps_attributes][#{i}][id]", value: "#{step.id}", id:"recipe_steps_attributes_#{i}_id"}
+    - ((@steps.length+1)..6).each do |i|
       .recipeStep
         .recipeStep__stepNum 
           STEP .
@@ -100,7 +109,7 @@
               =fa_icon 'facebook'
               %p 画像を登録する
             %input{type: "file", name: "recipe[steps_attributes][#{i}][image]", id: "recipe_steps_attributes_#{i}_image", style: "display:none;"}
-          %textarea{tyep: "text", name: "recipe[steps_attributes][#{i}][content]", id: "recipe_steps_attributes_#{i}_content", class: "recipeStep__stepDetail__comment"}
+          %textarea{tyep: "text", name: "recipe[steps_attributes][#{i}][content]", id: "recipe_steps_attributes_#{i}_content", class: "recipeStep__stepDetail__comment", placeholder: "行程を入力してください"}
     .recipePoint.recipeInfoBox.margin
       %h6.recipeInfoBox__title コツ・ポイント
       %p.recipeInfoBox__content=f.text_area :point
