@@ -34,21 +34,3 @@
       =f.file_field :image
     .recipeForm__send
       =f.submit '送ります'
-  = f.fields_for :steps do |s|
-    .stepForms
-      .stepForm
-        %h4 作成工程
-        .stepForm__content
-          = s.label :content, '説明'
-          = s.text_field :content
-        .stepForm__image
-          = s.label :image, '画像'
-          = s.file_field :image
-  = f.fields_for :materials do |m|
-    .mateForm
-      .material
-        %h5 工具
-        .mateForm__name
-          = m.label :name, 'タイトル'
-          = m.text_field :name 
-          = m.text_field :category, value: '0', style: 'display: none;'
