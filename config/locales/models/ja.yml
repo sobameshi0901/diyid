@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      recipe: ユーザー
+    attributes:
+      recipe:
+        name: レシピ名
+        build_time: 制作時間
+        cost: 制作費用
+        comment: 一言コメント
+        point: 作成のコツ
+        image: レシピ画像
+      material:
+        name: 材料・工具名
+        category: 材料or工具
+      step:
+        content: 説明文
+        image: 制作画像
+        # 以下は今後のサンプル用
+    # errors:
+    #   models:
+    #     user:
+    #       attributes:
+    #         email:
+    #           invalid: はxxx@xxx.xxxの形式で入力してください
+    #     shop:
+    #       attributes:
+    #         email:
+    #           invalid: はxxx@xxx.xxxの形式で入力してください
