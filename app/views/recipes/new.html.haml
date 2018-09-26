@@ -60,7 +60,7 @@
         %h6.recipeInfoBox__title 使用した工具
         %ul.recipeInfoBox__contents
           / 上と同じだが、JSで入力欄を増やす可能性があるため、数字は10~にしておく
-          -(10..16).each do |i|
+          -(10..15).each do |i|
             %li.affiTitle
               %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：電動ノコギリ"}
               / valueは1=工具で固定し、display:noneで表示させない
