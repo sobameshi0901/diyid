@@ -88,7 +88,7 @@
           %span=i
         .recipeStep__stepDetail.claerfix
           %label{for: "recipe_steps_attributes_#{i}_image"}
-            %image.recipeStep__stepDetail__pic{src: '/assets/katsu1.jpg'}
+            %image.recipeStep__stepDetail__pic{src: "#{step.image}"}
             .imageButton.clearfix
               =fa_icon 'facebook'
               %p 画像を登録する

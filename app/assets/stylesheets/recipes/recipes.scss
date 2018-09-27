@@ -172,10 +172,6 @@
 
 }
 
-.recipePankuzu {
-  font-size: 14px;
-}
-
 .recipeTitle {
   margin: 20px 0 10px;
   padding-left: 15px;
@@ -201,9 +197,25 @@
 }
 
 .recipeAuthor {
-  margin-top: 200px;
+  margin: 20px 0;
   font-size: 15px;
   color: $darkGray;
+  .authorLink {
+    padding-top: 5px;
+    display: block;
+    float: left;
+    color:black;
+  }
+  .editLink {
+    float: right;
+    margin-right: 20px;
+    border: 2px solid $darkGray;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: $black;
+    background-color: $beige;
+
+  }
 }
 
 
@@ -213,7 +225,7 @@
     float: left;
     display: inline-block;
     float: left;
-    width: 16%;
+    width: 22%;
     margin-right: 3%;
     padding: 5px 0;
     border-radius: 5px;
@@ -266,7 +278,7 @@
 
 
 .recipeTop {
-  margin-top: 20px;
+  margin-top: 25px;
   width: 100%;
   .recipePhoto {
     position: relative;
@@ -306,6 +318,10 @@
         padding: 5px;
         border: 1px solid $gray;
         border-radius: 3px;
+      }
+      span {
+        font-weight: normal;
+        font-size: 16px;
       }
     }
     .comment {
@@ -481,6 +497,7 @@
       &__comment {
         font-size: 15px;
         line-height: 19px;
+        margin-top: 10px;
       }
       &__pic {
         height: 100%;
