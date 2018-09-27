@@ -1,8 +1,8 @@
 .clearfix
   .recipe
     .recipePankuzu
-      %p トップ　＞　家具・照明　＞　トンカツ風の机
-    %h3.recipeTitle トンカツ風の机
+      %p="トップ　＞　#{@recipe.category.large_category.name}　＞　#{@recipe.category.name}"
+    %h3.recipeTitle=@recipe.name
     %a.recipeAuthor{href:'#'} 投稿者：そばめし
     .recipeFavo.clearfix
       .recipeFavo__like 
@@ -22,15 +22,15 @@
       .recipeDetail
         %h6
           制 作 費 用：
-          %span<> 20,000円
+          %span=@recipe.cost
         %h6
           制 作 時 間：
-          %span<> 6年
+          %span=@recipe.build_time
         %h6
           完成サイズ：
-          %span<> h200xw200xd200
+          %span=@recipe.size
         %h6.comment ひとこと
-        %p なんかとっても暇だったので、ちょっと作ってみました。豚を倒すのがちょっと難しかったかな。
+        %p=@recipe.comment
         .tags
           %h6.comment タグ一覧
           %a{href: '#'}
@@ -52,48 +52,38 @@
       .recipeMate.recipeInfoBox.margin
         %h6.recipeInfoBox__title 使用した材料
         %ul.recipeInfoBox__contents
-          %li.affiTitle
-            %p トンカツううううううううううううううう
-            %a.affiLink.clearfix{href:'#'}
-              %image.affiLink__img{src:'/assets/katsu1.jpg'}
-              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
-              %p.affiLink__price ¥2,000
-          %li.affiTitle
-            %p 卵
-            %a.affiLink.clearfix{href:'#'}
-              %image.affiLink__img{src:'/assets/katsu1.jpg'}
-              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
-              %p.affiLink__price ¥2,000
+          -if @materials_mate.present?
+            - @materials_mate.each do |mate|
+              %li.affiTitle
+                %p=mate.name
+                %a.affiLink.clearfix{href:'#'}
+                  %image.affiLink__img{src:'/assets/katsu1.jpg'}
+                  %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+                  %p.affiLink__price ¥2,000
       .recipeMate.recipeInfoBox
         %h6.recipeInfoBox__title 使用した工具
         %ul.recipeInfoBox__contents
-          %li.affiTitle
-            %p おたまああああああああああああああ
-            %a.affiLink.clearfix{href:'#'}
-              %image.affiLink__img{src:'/assets/katsu1.jpg'}
-              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
-              %p.affiLink__price ¥2,000
-          %li.affiTitle
-            %p おたまああああああああああああああ
-            %a.affiLink.clearfix{href:'#'}
-              %image.affiLink__img{src:'/assets/katsu1.jpg'}
-              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
-              %p.affiLink__price ¥2,000
-          %li.affiTitle
-            %p 伝説の包丁
-            %a.affiLink.clearfix{href:'#'}
-              %image.affiLink__img{src:'/assets/katsu1.jpg'}
-              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
-              %p.affiLink__price ¥2,000
-          %li.affiTitle
-            %p ボウル
-            %a.affiLink.clearfix{href:'#'}
-              %image.affiLink__img{src:'/assets/katsu1.jpg'}
-              %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
-              %p.affiLink__price ¥2,000
+          -if @materials_tool.present?
+            - @materials_tool.each do |tool|
+              %li.affiTitle
+                %p=tool.name
+                %a.affiLink.clearfix{href:'#'}
+                  %image.affiLink__img{src:'/assets/katsu1.jpg'}
+                  %p.affiLink__name いい感じの豚骨やああああああああああああああああああ
+                  %p.affiLink__price ¥2,000
     %a.amazonButton
       =fa_icon 'amazon'
       Amazonで購入する
-    =render 'show_steps'
+    .recipeSteps.clearfix
+      -if @steps.present?
+        -@steps.each.with_index(1) do |step, i|
+          .recipeStep
+            .recipeStep__stepNum 
+              STEP .
+              %span=i
+            .recipeStep__stepDetail.claerfix
+              -unless step.image.blank?
+                %image.recipeStep__stepDetail__pic{src: "#{step.image}"}
+              %p.recipeStep__stepDetail__comment=step.content
     =render 'show_post'
     =render 'show_related_recipes'
