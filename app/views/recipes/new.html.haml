@@ -1,77 +1,88 @@
-.recipeForm
-  %h4 基本情報
-  = form_for @recipe do |f|
-    .recipeForm__name
-      =f.label :name, '名前'
-      %br
-      =f.text_field :name, placeholder: '名前'
-    .recipeForm__point
-      =f.label :comment, 'コメント'
-      %br
-      =f.text_field :comment, placeholder: 'このレシピのコメント'
-    .recipeForm__build_time
-      =f.label :build_time, '制作時間'
-      %br
-      =f.text_field :build_time, placeholder: '制作時間'
-    .recipeForm__cost
-      =f.label :cost, '制作費用'
-      %br
-      =f.text_field :cost,placeholder: '制作費用'
-    .recipeForm__size
-      =f.label :size, '完成サイズ'
-      %br
-      =f.text_field :size, placeholder: '完成サイズ'
-    .recipeForm__point
-      =f.label :point, '製作時のポイント'
-      %br
-      =f.text_field :point, placeholder: '製作時のポイント'
-    .recipeForm__category
-      =f.label :category_id, 'カテゴリ'
-      %br
-      =f.select :category_id, [['1', '1']]
-    .recipeForm__image
-      =f.label :image, '画像'
-      =f.file_field :image
-    .recipeForm__send
-      =f.submit '送ります'
-    %h4 レシピ
-    = f.fields_for :materials do |m|
-      .mateForm
-        .material
-          %h5 工具
-          .mateForm__name
-            %label{for: "recipe_materials_attributes_0_name"} タイトル
-            %input{type: 'text', name: "recipe[materials_attributes][0][name]", id: "recipe_materials_attributes_0_name"}
-            %input{type:'text',name: 'recipe[materials_attributes][0][category]', id: "recipe_materials_attributes_0_category", value: '0'}
-          .mateForm__name
-            %label{for: "recipe_materials_attributes_1_name"} タイトル
-            %input{type: 'text', name: "recipe[materials_attributes][1][name]", id: "recipe_materials_attributes_1_name"}
-            %input{type:'text',name: 'recipe[materials_attributes][1][category]', id: "recipe_materials_attributes_1_category", value: '0'}
-          .mateForm__name
-            = m.label :name, 'タイトル'
-            = m.text_field :name
-            = m.text_field :category, value: '0'
-        .tool
-          %h5 材料
-          .mateForm__name
-            = m.label :name, 'タイトル'
-            = m.text_field :name
-            = m.text_field :category, value: '1'
-          .mateForm__name
-            = m.label :name, 'タイトル'
-            = m.text_field :name
-            = m.text_field :category, value: '1'
-          .mateForm__name
-            = m.label :name, 'タイトル'
-            = m.text_field :name
-            = m.text_field :category, value: '1'
-    = f.fields_for :steps do |s|
-      .stepForm
-        %h4 作成工程
-        .stepForm__content
-          = s.label :content, '説明'
-          = s.text_field :content
-        .stepForm__image
-          = s.label :image, '画像'
-          = s.file_field :image
+= form_for @recipe do |f|
+  / form_forで@recipeの状態によって遷移先を変更。stepとmaterialはnested_attributesの形で入力し、コントローラの処理でこれらも同時に登録する
+  .recipe.clearfix
+    %h3.recipeTitle
+      =f.text_field :name, placeholder: 'タイトルを入力　　例：ヒノキの机'
+    / トップ部分、タイトル、画像、レシピの詳細
+    .recipeCategory.clearfix
+      %p カテゴリを選択
+      / カテゴリを大カテゴリ→小カテゴリで表示
+    .recipeTop.clearfix
+      / 画像をクリックでファイル選択が開くよう、画像をlabel化、ファイル選択画面はdisplay:noneで表示しない
+      .recipePhoto
+        =f.label :image do
+          =image_tag '/assets/katsu1.jpg'
+          %p 画像クリックで写真を選択
 
+        =f.file_field :image, style: "display:none;"
+      .recipeDetail
+        %h6
+          制 作 費 用：
+          =f.text_field :cost,placeholder: '例：2,000円'
+        %h6
+          制 作 時 間：
+          =f.text_field :build_time, placeholder: '例：４時間'
+        %h6
+          完成サイズ：
+          =f.text_field :size, placeholder: '例：h200 x w200 x d200x'
+        %h6.comment ひとこと
+        =f.text_area :comment, class: "commentForm", placeholder: 'どのような目的で作ったか、使ってみてどうかなど、自由に入力してください。'
+        / この部分は未完
+        .tags
+          %h6.comment タグ一覧
+          =link_to '#' do
+            =fa_icon 'tag'
+            トンカツ
+          =link_to '#' do
+            =fa_icon 'tag'
+            時短レシピ
+          =link_to '#' do
+            =fa_icon 'tag'
+            千円以下
+          =link_to '#' do
+            =fa_icon 'tag'
+            嫁に欲しい
+          =link_to '#' do
+            =fa_icon 'tag'
+            何かよくわからない
+      / 材料入力部分
+    .recipeMates
+      .recipeMate.recipeInfoBox.margin
+        %h6.recipeInfoBox__title 使用した材料
+        %ul.recipeInfoBox__contents
+          / 以下はnested_attributesの番号、6つ作成する
+          -(0..5).each do |i|
+            %li.affiTitle
+              / name、idをiに合わせて変更
+              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：天板 高さ100x横幅250x厚さ50 １枚"}
+              / valueは0＝材料で固定し、display:noneで表示させない
+              %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
+      .recipeMate.recipeInfoBox
+        %h6.recipeInfoBox__title 使用した工具
+        %ul.recipeInfoBox__contents
+          / 上と同じだが、JSで入力欄を増やす可能性があるため、数字は10~にしておく
+          -(10..15).each do |i|
+            %li.affiTitle
+              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：電動ノコギリ"}
+              / valueは1=工具で固定し、display:noneで表示させない
+              %input{type: "text", value: "1", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
+  / レシピ作成手順入力画面
+  .recipeSteps.clearfix
+    / @materials_mateと構造は一緒。すでに@recipeに登録されている@stepsを表示し、値が登録されていない部分（最大６個）は空欄を入れる。
+    - (1..6).each do |i|
+      .recipeStep
+        .recipeStep__stepNum 
+          STEP .
+          %span=i
+        .recipeStep__stepDetail.claerfix
+          %label{for: "recipe_steps_attributes_#{i}_image"}
+            %image.recipeStep__stepDetail__pic{src: '/assets/katsu1.jpg', style: 'display:none;'}
+            .imageButton.clearfix
+              =fa_icon 'facebook'
+              %p 画像を登録する
+            %input{type: "file", name: "recipe[steps_attributes][#{i}][image]", id: "recipe_steps_attributes_#{i}_image", style: "display:none;"}
+          %textarea{tyep: "text", name: "recipe[steps_attributes][#{i}][content]", id: "recipe_steps_attributes_#{i}_content", class: "recipeStep__stepDetail__comment", placeholder: "行程を入力してください"}
+    .recipePoint.recipeInfoBox.margin
+      %h6.recipeInfoBox__title コツ・ポイント
+      %p.recipeInfoBox__content=f.text_area :point, placeholder: "作成する上で、コツやポイントがあれば入力してください。"
+  =f.submit "レシピを登録する", class: "amazonButton submitRecipe"

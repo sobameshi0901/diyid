@@ -1,16 +1,18 @@
+// 全体ページ
 .contentInner {
   height: 100vh;
   width: 980px;
   margin: 0 auto;
   padding-top: 20px;
-
 }
 
+// ページのメイン左側（右にサイドバー）
 .mainContents {
   width: 740px;
   float: left;
 }
 
+// コンテンツのメイン部分 mainContentsの中身
 .content {
   margin-bottom: 25px;
   border: 1px solid $lightGray;
@@ -159,6 +161,13 @@
     }
   }
 }
+
+
+
+
+
+// レシピの詳細・登録・編集ページ
+// 登録フォームについては、各クラス内にinputやtextareaを指定している
 .recipe {
 
 }
@@ -172,6 +181,23 @@
   padding-left: 15px;
   border-left: 10px solid $black;
   font-size: 30px;
+  // 登録の際のinputフォーム
+  input {
+    width: 90%;
+    padding: 5px;
+    font-size: 25px;
+  }
+}
+
+.recipeCategory {
+  margin-top: 20px;
+  p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  select {
+    font-size: 18px;
+  }
 }
 
 .recipeAuthor {
@@ -243,9 +269,22 @@
   margin-top: 20px;
   width: 100%;
   .recipePhoto {
+    position: relative;
     width: 50%;
     float: left;
-    border-radius: 5px;
+    img {
+      width: 95%;
+      border-radius: 5px;
+    }
+    p {
+      position: absolute;
+      top: 40%;
+      left: 20%;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      opacity: 0.8;
+    }
   }
 
   .recipeDetail {
@@ -258,21 +297,34 @@
     h6 {
       font-size: 18px;
       padding: 0 0 5px 3px;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
       border-bottom: 1px dotted $gray;
       color: $darkGray;
-      span {
-        font-size: 16px;
-        font-weight: normal;
+      // レシピ登録・編集時のフォーム
+      input {
+        font-size: 15px;
+        padding: 5px;
+        border: 1px solid $gray;
+        border-radius: 3px;
       }
     }
     .comment {
       margin-bottom:10px;
     }
+
+    .commentForm {
+      display: block;
+      width: 90%;
+      height: 60px;
+      padding: 5px 10px;
+      border: 1px solid $gray;
+      font-size: 15px;
+    }
     p {
       padding-left: 5px;
       font-size: 15px;
     }
+    // タグ関連
     .tags {
       position: absolute;
       bottom: 0;
@@ -282,6 +334,7 @@
      a{
       display: inline-block;
       padding: 4px;
+      margin-right: 10px;
       margin-top: 10px;
       border: 1px solid $gray;
       font-size: 12px;
@@ -324,6 +377,14 @@
     border-spacing: 10px 0;  /* 左右 上下で記述 */
   .recipeMate {
     display: table-cell;
+    // 登録・編集時のフォーム
+    input {
+      width: 95%;
+      padding: 5px;
+      font-size: 15px;
+      border: 1px solid $gray;
+      border-radius: 3px;
+    }
   }
   .margin {
     margin-right: 4%;
@@ -380,6 +441,29 @@
     display: inline-block;
     width: 32%;
     padding: 15px 10px;
+    // 登録・編集用フォーム
+    textarea {
+      padding: 5px;
+      width: 95%;
+      height: 50px;
+      border-radius: 3px;
+      border: 1px solid $gray;
+    }
+    label {
+      // 手順に画像を登録するボタン
+      .imageButton {
+        width: 65%;
+        padding: 5px;
+        border: 1px solid $gray;
+        background-color: $lightGray;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        p {
+          float: right;
+        }
+      }
+    }
     &__stepNum {
       border-bottom: 3px double $gray;
       font-weight: bold;
@@ -411,6 +495,13 @@
 .recipePoint {
   width: 97%;
   margin: 30px auto 0;
+  // 登録・編集用フォーム
+  textarea {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    font-size: 15px;
+  }
 }
 
 .recipeDate {
@@ -428,4 +519,12 @@
   font-size: 25px;
   margin: 30px auto 10px;
   padding-top: 20px;
+}
+
+.submitRecipe {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  height: 50px;
+  padding: 20px 40;
+  font-size: 20px;
 }
