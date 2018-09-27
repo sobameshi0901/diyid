@@ -1,32 +1,30 @@
 = form_for @recipe do |f|
   / form_forで@recipeの状態によって遷移先を変更。stepとmaterialはnested_attributesの形で入力し、コントローラの処理でこれらも同時に登録する
   .recipe.clearfix
-    %h3.recipeTitle=f.text_field :name, placeholder: 'タイトルを入力　　例：ヒノキの机'
+    %h3.recipeTitle
+      =f.text_field :name, placeholder: 'タイトルを入力　　例：ヒノキの机'
     / トップ部分、タイトル、画像、レシピの詳細
     .recipeCategory.clearfix
       %p カテゴリを選択
       / カテゴリを大カテゴリ→小カテゴリで表示
       =f.grouped_collection_select(:category_id, LargeCategory.all, :categories, :name, :id, :name)
     .recipeTop.clearfix
-      / 画像をクリックでファイル選択が開くよう、画像をlabel化、ファイル選択画面はdisplay:noneで表示しない
-      / =f.fields_for :materials do |m|
-      /   =m.text_field :name
       .recipePhoto
         =f.label :image do
-          %image{src: '/assets/katsu1.jpg'}
+          =image_tag "#{@recipe.image}"
           %p 画像クリックで写真を選択
 
         =f.file_field :image, style: "display:none;"
       .recipeDetail
         %h6
           制 作 費 用：
-          %span=f.text_field :cost,placeholder: '例：2,000円'
+          =f.text_field :cost,placeholder: '例：2,000円'
         %h6
           制 作 時 間：
-          %span=f.text_field :build_time, placeholder: '例：４時間'
+          =f.text_field :build_time, placeholder: '例：４時間'
         %h6
           完成サイズ：
-          %span=f.text_field :size, placeholder: '例：h200 x w200 x d200x'
+          =f.text_field :size, placeholder: '例：h200 x w200 x d200x'
         %h6.comment ひとこと
         =f.text_area :comment, class: "commentForm", placeholder: 'どのような目的で作ったか、使ってみてどうかなど、自由に入力してください。'
         / この部分は未完
