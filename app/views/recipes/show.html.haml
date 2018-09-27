@@ -6,7 +6,10 @@
   .recipe
     =render "shared/breadcrumbs"
     %h3.recipeTitle=@recipe.name
-    %a.recipeAuthor{href:'#'} 投稿者：そばめし
+    .recipeAuthor.clearfix
+      =link_to "投稿者：そばめし", '#', class: "authorLink"
+      =link_to "削除する", '#', class: "editLink"
+      =link_to "編集する", edit_recipe_path(@recipe), class: "editLink"
     .recipeFavo.clearfix
       .recipeFavo__like 
         =fa_icon 'heart'
@@ -21,7 +24,7 @@
         =fa_icon 'twitter-square'
         %p ツイートする
     .recipeTop.clearfix
-      %image.recipePhoto{src: '/assets/katsu1.jpg'}
+      =image_tag  "#{@recipe.image}" ,class: "recipePhoto"
       .recipeDetail
         %h6
           制 作 費 用：
