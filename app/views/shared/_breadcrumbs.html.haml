@@ -1,0 +1,8 @@
+- if breadcrumbs.present?
+  %ol.breadcrumbs
+    - breadcrumbs.each do |breadcrumb|
+      %li.breadcrumb
+        - if breadcrumbs.last != breadcrumb
+          = link_to breadcrumb.name, breadcrumb.path
+        - else
+          = breadcrumb.name

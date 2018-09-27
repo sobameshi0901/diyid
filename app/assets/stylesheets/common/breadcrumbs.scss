@@ -1,0 +1,36 @@
+.breadcrumbs {
+  margin-left:0;
+  padding-left:0;
+}
+
+.breadcrumbs li{
+  display:inline;/*横に並ぶように*/
+  list-style: none;
+}
+
+.breadcrumbs li:after{/* >を表示*/
+  content: '>';
+  padding: 0 3px;
+  color: #555;
+}
+
+.breadcrumbs li:last-child:after{
+  content: '';
+}
+
+.breadcrumbs li a {
+    text-decoration: none;
+    color: $darkGray;
+}
+
+.breadcrumbs li:first-child a:before{/*家アイコン*/
+  font-family: FontAwesome;
+  content: '\f015';
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #2e7fea;
+}
+
+.breadcrumbs li a:hover {
+    text-decoration: underline;
+}

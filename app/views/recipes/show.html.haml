@@ -1,7 +1,10 @@
+- add_breadcrumb @recipe.category.large_category.name , "#"
+- add_breadcrumb @recipe.category.name, '#'
+- add_breadcrumb @recipe.name, '#'
+
 .clearfix
   .recipe
-    .recipePankuzu
-      %p="トップ　＞　#{@recipe.category.large_category.name}　＞　#{@recipe.category.name}"
+    =render "shared/breadcrumbs"
     %h3.recipeTitle=@recipe.name
     %a.recipeAuthor{href:'#'} 投稿者：そばめし
     .recipeFavo.clearfix
