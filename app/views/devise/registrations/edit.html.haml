@@ -28,4 +28,4 @@
       = f.submit "ユーザー情報更新", class: "button"
   %h3.formMessage 退会する
   = link_to "退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: "button bottomButton", method: :delete
-  = link_to "<< ユーザー情報ページへ戻る >>", :back
+  = link_to "ユーザー情報ページへ戻る", user_path(current_user), class: "backToProfile"

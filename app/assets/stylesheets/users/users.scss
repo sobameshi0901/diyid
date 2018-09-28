@@ -84,4 +84,25 @@
   .imageLabel {
     margin-top: 30px;
   }
+  #error_explanation {
+    h2 {
+      margin-top: 20px;
+      color: red;
+    }
+    ul {
+      list-style: square;
+      li {
+        margin-top: 15px;
+        color: $darkRed;
+        font-weight: bold;
+        font-size: 13px;
+      }
+    }
+  }
+  .backToProfile {
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: underline;
+  }
 }
