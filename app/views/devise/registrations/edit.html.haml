@@ -1,36 +1,31 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.userForm
+  %h2.formMessage ユーザー情報変更
+  %p.recommendMessage ※変更したい情報と現在のパスワード()を入力して、"ユーザー情報更新" ボタンを押してください。
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+    .field.clearfix
+      = f.label :avatar, "プロフィール画像：", class: "label labelEmail"
+      = f.file_field :avatar, class: "form formEmail"
+    .field.clearfix
+      = f.label :nickname, "ニックネーム：", class: "label labelEmail"
+      = f.text_field :nickname, class: "form formEmail"
+    .field.clearfix
+      = f.label :email, "メールアドレス：", class: "label labelEmail"
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@xyz.com", class: "form formEmail"
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .field.clearfix
+      = f.label :password,"新パスワード：", class: "label labelPassword"
+      = f.password_field :password, autocomplete: "off", class: "form formPassword"
+    .field.clearfix
+      = f.label :password_confirmation,"新パスワードの確認：", class: "label labelPassword"
+      = f.password_field :password_confirmation, autocomplete: "off", class: "form formPassword"
+    .field.clearfix
+      = f.label :current_password,"現在のパスワード(※)：", class: "label labelPassword"
+      = f.password_field :current_password, autocomplete: "off", class: "form formPassword"
+    .actions
+      = f.submit "ユーザー情報更新", class: "button"
+  %h3.formMessage 退会する
+  = link_to "退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: "button bottomButton", method: :delete
+  = link_to "<< ユーザー情報ページへ戻る >>", :back
