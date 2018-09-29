@@ -115,19 +115,21 @@
     padding: 5px;
     width: 100%;
     border: 1px dotted $lightGray;
-    color: $darkGray;
-    h4 {
+    &__img {
       display: inline-block;
-      font-size: 24px;
-      margin-left: 10px;
+      width: 15%;
+      color: $darkGray;
     }
-    i {
+    &__name {
       display: inline-block;
       margin-left: 10px;
+      font-size: 20px;
+      width: 75%;
+      color: $darkGray;
     }
     &:hover {
       color: white;
-      background-color: $darkGray;
+      background-color: $lightGray;
       border: none;
     }
   }
@@ -135,8 +137,8 @@
     display: none;
     padding-left: 20px;
     h4 {
-      font-size: 18px;
-      margin-left: 18px;
+      font-size: 16px;
+      color: $darkGray;
     }
   }
 

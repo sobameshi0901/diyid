@@ -39,80 +39,26 @@
   .genreWrapper
     .genre
       =fa_icon 'twitter 2x'
-      %h4 ツイッタ                
+      %h4 ツイッタ
 .sideContent.searchCategories
   %h2.sideContent__title
     =fa_icon 'list'
     カテゴリで探す
-  .categoryBlock
-    .largeCategory.category
-      = link_to '#' do
-        = fa_icon 'bars 2x'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-  .categoryBlock
-    .largeCategory.category
-      = link_to '#' do
-        = fa_icon 'bars 2x'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-  .categoryBlock
-    .largeCategory.category
-      = link_to '#' do
-        = fa_icon 'bars 2x'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-  .categoryBlock
-    .largeCategory.category
-      = link_to '#' do
-        = fa_icon 'bars 2x'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-    .smallCategory.category
-      = link_to '#' do
-        = fa_icon 'bars'
-        %h4 カテゴリ別
-
+    - LargeCategory.all.each do |large_cate|
+      .categoryBlock
+        .largeCategory.category
+          = link_to '#' do
+            .category__img
+              = fa_icon 'bars 2x'
+            .category__name
+              %h4=large_cate.name
+        -large_cate.categories.each do |cate|
+          .smallCategory.category
+            = link_to '#' do
+              .category__img
+                = fa_icon 'bars'
+              .category__name
+                %h4=cate.name
 
 .sideContent.dailyRank.clearfix
   %h2.sideContent__title 
