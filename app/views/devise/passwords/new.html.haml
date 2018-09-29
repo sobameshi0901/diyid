@@ -1,0 +1,11 @@
+.userForm
+  %h2.formMessage パスワードを忘れた方
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = devise_error_messages!
+    .field.clearfix
+      = f.label :email, "メールアドレス：", class: "label labelEmail"
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@xyz.com", class: "form formEmail"
+    .actions
+      = f.submit "パスワード変更メールを送信", class: "button"
+  %h2.formMessage.marginTop その他の方はこちら
+  = render "devise/shared/links"

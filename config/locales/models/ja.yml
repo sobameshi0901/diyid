@@ -1,7 +1,8 @@
 ja:
   activerecord:
     models:
-      recipe: ユーザー
+      recipe: レシピ
+      user: ユーザー
     attributes:
       recipe:
         name: レシピ名
@@ -16,6 +17,14 @@ ja:
       step:
         content: 説明文
         image: 制作画像
+      user:
+        nickname: ニックネーム
+        avatar: プロフィール画像
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        current_password: 現在のパスワード
+
         # 以下は今後のサンプル用
     # errors:
     #   models:

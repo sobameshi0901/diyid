@@ -1,23 +1,24 @@
 %header
-  %image.logo{src: '/assets/DSC_0295.JPG'}
+  =link_to root_path do
+    %h1.siteTitle DIYID
+    %h2.siteTitle2.siteTitle__sub IYID
+    %h3.siteTitle3.siteTitle__sub IYID
+    %h4.siteTitle4.siteTitle__sub IYI
+    %h3.siteTitle3.siteTitle__sub DIYI
+    %h2.siteTitle2.siteTitle__sub DIYI
+    %h1.siteTitle DIYID
   .rightContents
     %ul
-      %li.signOut
-        = link_to "新規登録", "#"
-      %li.myPage
-        = link_to "ログイン", "#"
-      %li.newPost
-        = link_to "レシピを投稿", new_recipe_path
+      -if signed_in?
+        %li.flame.flameRed.borderRight
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        %li.flame.flameOrange
+          = link_to "マイページ", user_path(current_user)
+        %li.flame.flameBlue
+          = link_to "レシピを投稿", new_recipe_path
+      -else
+        %li.flame.flameRed.borderRight
+          = link_to "新規登録", new_user_registration_path
+        %li.flame.flameBlue
+          = link_to "ログイン", new_user_session_path
 .globalNav
-  .navContents
-    %ul
-      %li
-        = link_to "１時間で作る", "#", class: "borderLeft"
-      %li
-        = link_to "千円で作る", "#"
-      %li
-        = link_to "アイデアグッズ", "#"
-      %li
-        = link_to "自然素材でキレイに", "#"
-      %li
-        = link_to "カテゴリ別", "#"

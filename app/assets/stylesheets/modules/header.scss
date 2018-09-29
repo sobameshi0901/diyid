@@ -8,12 +8,33 @@ header {
   width: 980px;
   height: 100px;
   margin: 0 auto;
+  padding-left: 40px;
 }
 
-.logo {
-  float: left;
-  width: 600px;
-  height: 100%;
+.siteTitle {
+  display:inline-block;
+  margin-top: 15px;
+  font-size: 45px;
+  color:black;
+  margin-top: 30px;
+  &__sub {
+    display: inline-block;
+  }
+}
+
+.siteTitle2 {
+  font-size: 35px;
+  color: $darkGray;
+}
+
+
+.siteTitle3 {
+  font-size: 25px;
+  color: $gray;
+}
+.siteTitle4 {
+  font-size: 15px;
+  color: $lightGray;
 }
 
 .searchArea {
@@ -46,10 +67,12 @@ header {
     display: block;
     height: 100%;
   }
-  .signOut {
-    background-color: #fff;
+  // 共通フレーム、ボーダー左側。一番右のフレーム（floatしてるので、一番上の要素）にだけクラスを与えボーダー右を加える
+  .flame {
     border-left: 1px solid $lightGray;
-    border-right: 1px solid $lightGray;
+      }
+  .flameRed {
+    background-color: #fff;
     border-bottom: 5px solid $darkRed;
     a {
       color: $darkRed;
@@ -59,9 +82,8 @@ header {
       }
     }
   }
-  .myPage {
+  .flameOrange {
     background-color: #fff;
-    border-left: 1px solid $lightGray;
     border-bottom:  5px solid $orange;
     a {
       color: $orange;
@@ -71,7 +93,7 @@ header {
       }
     }
   }
-  .newPost {
+  .flameBlue {
     border-bottom:  5px solid $facebook;
     a {
       color: $facebook;
@@ -81,40 +103,12 @@ header {
       }
     }
   }
+  .borderRight {
+    border-right: 1px solid $lightGray;
+  }
 }
 
 .globalNav {
   width: 100%;
   border-top: 1px solid $lightGray;
-  border-bottom: 1px solid $lightGray;
-}
-
-.navContents {
-  width: 980px;
-  margin: 0 auto;
-  ul {
-    // inline-boxの隙間を消す
-    font-size: 0;
-  }
-  li {
-    box-sizing: border-box;
-    display: inline-block;
-    width: 20%;
-    padding: 8px 0;
-    text-align: center;
-    font-size: 14px;
-  }
-  a {
-    font-weight: bold;
-    border-right: 1px solid $lightGray;
-    color:$black;
-    display: block;
-    line-height: 20px;
-    &:hover {
-      color: $darkOrange;
-    }
-  }
-  .borderLeft {
-    border-left: 1px solid $lightGray;
-  }
 }
