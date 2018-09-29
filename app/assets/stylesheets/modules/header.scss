@@ -112,33 +112,3 @@ header {
   width: 100%;
   border-top: 1px solid $lightGray;
 }
-
-// .navContents {
-//   width: 980px;
-//   margin: 0 auto;
-//   ul {
-//     // inline-boxの隙間を消す
-//     font-size: 0;
-//   }
-//   li {
-//     box-sizing: border-box;
-//     display: inline-block;
-//     width: 20%;
-//     padding: 8px 0;
-//     text-align: center;
-//     font-size: 14px;
-//   }
-//   a {
-//     font-weight: bold;
-//     border-right: 1px solid $lightGray;
-//     color:$black;
-//     display: block;
-//     line-height: 20px;
-//     &:hover {
-//       color: $darkOrange;
-//     }
-//   }
-//   .borderLeft {
-//     border-left: 1px solid $lightGray;
-//   }
-// }
