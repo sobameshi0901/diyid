@@ -155,15 +155,3 @@
   }
 }
 
-// subThumRecipe => recipe.scss からdailyRank用に一部修正
-.dailyRank {
-  width: 100%;
-  .subThumRecipe {
-    padding: 5px;
-    width: 50%;
-    height: 135px;
-    &__image {
-      height: 100px;
-    }
-  }
-}
