@@ -12,6 +12,37 @@
   float: left;
 }
 
+// トップページrecipe#indexの最上部・ランキング
+.recipeRanking {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+
+.bigThumRecipe {
+  width: 33%;
+  padding: 5px;
+  float: left;
+  &__image {
+    width: 100%;
+  }
+  &__title {
+    margin: 10px 5px;
+    font-size: 18px;
+  }
+  &__user {
+    margin: 0 5px;
+    font-size: 13px;
+  }
+  a:hover {
+    .bigThumRecipe {
+      &__image {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
 // コンテンツのメイン部分 mainContentsの中身
 .content {
   margin-bottom: 25px;
@@ -52,32 +83,7 @@
     }
   }
 }
-.bigThumRecipes {
-  
-}
-.bigThumRecipe {
-  width: 33%;
-  padding: 5px;
-  float: left;
-  &__image {
-    width: 100%;
-  }
-  &__title {
-    margin: 10px 5px;
-    font-size: 18px;
-  }
-  &__user {
-    margin: 0 5px;
-    font-size: 13px;
-  }
-  a:hover {
-    .bigThumRecipe {
-      &__image {
-        opacity: 0.5;
-      }
-    }
-  }
-}
+
 
 .mainThumRecipe {
   width: 100%;

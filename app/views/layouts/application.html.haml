@@ -9,6 +9,7 @@
   %body
     = render '/layouts/header'
     .contentInner
+      = yield :recipe_rank
       .mainContents
         = yield
       .sideContents
