@@ -3,10 +3,10 @@ class RecipesController < ApplicationController
   before_action :set_materials_and_steps, only: [:show, :edit]
   def index
     # ランキング機能はまだなので、仮に数字を入れる
-    @rankings = Recipe.order('updated_at DESC').limit(10)
+    @rankings = Recipe.includes(:user).order('updated_at DESC').limit(10)
     @new_pickup = Recipe.last
-    @new_rankings = Recipe.order('updated_at DESC').limit(6)
-    @recipes = Recipe.all.page(params[:page]).per(12)
+    @new_rankings = Recipe.includes(:user).order('updated_at DESC').limit(6)
+    @recipes = Recipe.includes(:user).page(params[:page]).per(12)
   end
 
   def show
