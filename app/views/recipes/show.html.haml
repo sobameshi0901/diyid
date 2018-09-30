@@ -11,16 +11,24 @@
       =link_to "削除する", '#', class: "editLink"
       =link_to "編集する", edit_recipe_path(@recipe), class: "editLink"
     .recipeFavo.clearfix
-      .recipeFavo__like 
+      = link_to '#', class: ".recipeFavo__like" do
         =fa_icon 'heart'
         %p いいね
       .recipeFavo__favo
-        =fa_icon 'star'
-        %p お気に入り
+        - if @favorite.nil? 
+          =link_to recipe_favorites_path(@recipe), method: :post, class: "notFavoritted" do
+            =fa_icon 'star'
+            %p お気に入り
+        - else
+          =link_to recipe_favorite_path(@recipe, @favorite), method: :delete, class: "favoritted" do
+            =fa_icon 'star'
+            %p お気に入りを外す
       .recipeFavo__facebook
+      = link_to '#', class: ".recipeFavo__facebook" do
         =fa_icon 'facebook-square'
         %p シェアする
       .recipeFavo__twitter.noMarginRight
+      = link_to '#', class: ".recipeFavo__twitter noMarginRight" do
         =fa_icon 'twitter-square'
         %p ツイートする
     .recipeTop.clearfix

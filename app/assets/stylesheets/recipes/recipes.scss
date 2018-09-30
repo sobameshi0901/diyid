@@ -263,7 +263,7 @@
 
 .recipeFavo {
   margin-top: 15px;
-  div {
+  a {
     float: left;
     display: inline-block;
     float: left;
@@ -288,11 +288,21 @@
     }
   }
   &__favo {
-    border: 2px solid $orange;
-    color: $orange;
-    &:hover {
-      background-color: $orange;
+    .notFavoritted {
+      border: 2px solid $orange;
+      color: $orange;
+      &:hover {
+        background-color: $orange;
+        color: white;
+      }
+    }
+    .favoritted {
       color: white;
+      background-color: $orange;
+      &:hover {
+       color: $orange;
+        border: 2px solid $orange;
+      }
     }
   }
   &__facebook {
