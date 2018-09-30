@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :recipes
+  has_many :favorites
+  has_many :recipes, through: :favorites
+
   has_attached_file :avatar, styles: {medium: "300x300#", humb: "100x100#"}
   validates_attachment_content_type :avatar, content_type: ["image/jpg", "image/jpeg", "image/png"]
 end
