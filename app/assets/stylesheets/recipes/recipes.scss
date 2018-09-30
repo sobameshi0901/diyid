@@ -264,7 +264,6 @@
 .recipeFavo {
   margin-top: 15px;
   a {
-    float: left;
     display: inline-block;
     float: left;
     width: 22%;
@@ -287,7 +286,6 @@
       color: white;
     }
   }
-  &__favo {
     .notFavoritted {
       border: 2px solid $orange;
       color: $orange;
@@ -299,12 +297,13 @@
     .favoritted {
       color: white;
       background-color: $orange;
+      border: 2px solid $orange;
       &:hover {
-       color: $orange;
+        color: $orange;
+        background-color: white;
         border: 2px solid $orange;
       }
     }
-  }
   &__facebook {
     background-color: $facebook;
     border: 2px solid $facebook;
