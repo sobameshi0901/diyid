@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :steps
   has_many :materials
-  has_many :favorite
+  has_many :favorites
   has_many :recipes, through: :favorites
 
   validates :name, :image, :comment, :category, presence: true
