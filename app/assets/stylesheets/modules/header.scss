@@ -6,17 +6,15 @@
 
 header {
   width: 980px;
-  height: 100px;
+  height: 65px;
   margin: 0 auto;
-  padding-left: 40px;
 }
 
 .siteTitle {
   display:inline-block;
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 45px;
   color:black;
-  margin-top: 30px;
   &__sub {
     display: inline-block;
   }
@@ -46,14 +44,14 @@ header {
 
 
 .rightContents {
-  height: 100px;
+  height: 100%;
   width: 300px;
   float: right;
   ul {
     height: 100%;
   }
   li {
-    width: 100px;
+    width: 90px;
     height: 100%;
     float: right;
     text-align: center;
@@ -63,7 +61,7 @@ header {
   }
   a {
     box-sizing: border-box;
-    padding-top: 42px;
+    padding-top: 25px;
     display: block;
     height: 100%;
   }
@@ -110,5 +108,45 @@ header {
 
 .globalNav {
   width: 100%;
-  border-top: 1px solid $lightGray;
+  border: 1px solid $lightGray;
+  background-color: $beige;
+  .searchBox {
+    width: 980px;
+    margin: 0 auto;
+    padding: 10px 0;
+    &__title {
+      display: block;
+      float: left;
+      margin-top: 10px;
+      margin-right: 70px;
+    }
+    &__input {
+      width: 250px;
+      height: 35px;
+      margin-bottom: 0;
+      border: 2px solid $gray;
+      border-radius: 5px 0 0 5px;
+      float: left;
+      border-right: none;
+    }
+    &__button {
+      position: relative;
+      border: 2px solid $gray;
+      border-left: none;
+      float: left;
+      margin-right: 50px;
+      height: 35px;
+    }
+    &__recommendWord {
+      float: left;
+      h4 {
+        display: inline-block;
+        margin-top: 5px;
+      }
+      a {
+        background-color: white;
+        border: 1px solid $gray;
+      }
+    }
+  }
 }

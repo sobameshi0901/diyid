@@ -22,3 +22,16 @@
         %li.flame.flameBlue
           = link_to "ログイン", new_user_session_path
 .globalNav
+  %form.searchBox.clearfix
+    %h4.searchBox__title
+      =fa_icon 'search'
+      ：キーワードで検索
+    %input.searchBox__input{name: "search", type: "text", placeholder: "名前・材料で検索"}
+    %button.searchBox__button{type: "submit"}
+      = fa_icon 'search'
+      検索
+    .searchBox__recommendWord
+      %h4 人気ワード：
+      = link_to "ヒノキ", "#"
+      = link_to "テーブル",'#'
+      = link_to "トイレ周り", '#'

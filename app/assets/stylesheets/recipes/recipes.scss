@@ -12,73 +12,18 @@
   float: left;
 }
 
-// コンテンツのメイン部分 mainContentsの中身
-.content {
-  margin-bottom: 25px;
-  border: 1px solid $lightGray;
-  border-radius: 3px;
-  background-color: white;
-  .leftContent {
-    float: left;
-    width: 50%;
-    padding: 10px;
-  }
-  .rightContent {
-    float: right;
-    width: 50%;
-    padding: 10px;
-  }
+// トップページrecipe#indexの最上部・ランキング
+.recipeRanking {
+  margin-bottom: 50px;
+  text-align: center;
   .mainTitle {
-    padding:10px;
-    border-radius: 3px 3px 0 0;
-    font-size: 24px;
-    font-weight: bold;
-    border: 3px double $lightGray;
-  }
-  .subTitle {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: none;
-    font-size: 16px;
-    border-bottom: 4px double $lightGray;
-    background-color: white;
-  }
-  a {
-    color: $black;
-    &:hover {
-      color: $orange;
-      opacity: 0.7;
-    }
-  }
-}
-.bigThumRecipes {
-  
-}
-.bigThumRecipe {
-  width: 33%;
-  padding: 5px;
-  float: left;
-  &__image {
-    width: 100%;
-  }
-  &__title {
-    margin: 10px 5px;
-    font-size: 18px;
-  }
-  &__user {
-    margin: 0 5px;
-    font-size: 13px;
-  }
-  a:hover {
-    .bigThumRecipe {
-      &__image {
-        opacity: 0.5;
-      }
-    }
+    font-size: 22px;
   }
 }
 
+// 以下サムネイル画像（プロフィール等含む）
+
+// 一番大きい、TOPの新着レシピメイン画像
 .mainThumRecipe {
   width: 100%;
   height: 300px;
@@ -106,15 +51,45 @@
   }
 }
 
-
-
-
-.subThumRecipe {
+// ページの横に3枚
+// トップページのランキング用
+.bigThumRecipe {
   width: 33%;
-  height: 180px;
-  padding: 0px 3px 3px;
+  padding: 10px;
   float: left;
-  position: relative;
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit:cover;
+  }
+  &__title {
+    margin: 10px 5px;
+    font-size: 18px;
+    color: $darkGray;
+  }
+  &__user {
+    margin: 0 5px;
+    font-size: 13px;
+    color: $darkGray;
+  }
+  a:hover {
+    .bigThumRecipe {
+      &__image {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+
+
+// 小さめのサムネ、TOPの新着レシピのランキング部分
+.subThumRecipe {
+  width: 30%;
+  height: 130px;
+  margin-bottom: 10px;
+  padding: 0px 3px 3px;
+  display: inline-block;
   &__image {
     object-fit: cover;
     width: 100%;
@@ -140,27 +115,94 @@
       }
     }
   }
-  .rank {
-    width: 35px;
-    position: absolute;
-    top: 2px;
-    left:5px;
-    z-index: 10;
-  }
 }
 
-// 関連レシピのサムネは上のから必要部分のみ調整
+// 中間のサムネ。レシピ一覧、関連レシピなどに使用
+// 関連レシピのサムネは上のから必要部分のみmidThumRecipesの枠に入れて調整
 .midThumRecipes {
   width: 100%;
+  padding-top: 15px;
+  padding-left: 10px;
   .subThumRecipe {
-    width: 24%;
-    height: 190px;
+    display: inline-block;
+    width: 23%;
+    height: 240px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    box-shadow: 1px 0 5px 1px $gray;
     &__image {
       width: 100%;
       height: 170px;
     }
+    &__user {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
   }
 }
+
+// subThumRecipe => recipe.scss からdailyRank用に一部修正
+.dailyRank {
+  width: 100%;
+  .subThumRecipe {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 48%;
+    height: 135px;
+    &__image {
+      height: 100px;
+    }
+  }
+}
+
+
+
+// コンテンツのメイン部分 mainContentsの中身
+.content {
+  margin-bottom: 25px;
+  border: 1px solid $lightGray;
+  border-radius: 3px;
+  .leftContent {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  .rightContent {
+    float: right;
+    width: 50%;
+    padding: 10px;
+  }
+  .mainTitle {
+    padding:10px;
+    border-radius: 3px 3px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px double $lightGray;
+  }
+  .subTitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: none;
+    font-size: 16px;
+  }
+  a {
+    color: $black;
+    &:hover {
+      color: $orange;
+      opacity: 0.7;
+    }
+  }
+  .bgcBeige {
+    background-color: $beige;
+  }
+}
+
+
+
 
 
 
@@ -283,11 +325,9 @@
   .recipePhoto {
     position: relative;
     width: 50%;
+    height: 400px;
     float: left;
-    img {
-      width: 95%;
-      border-radius: 5px;
-    }
+    object-fit:cover;
     p {
       position: absolute;
       top: 40%;

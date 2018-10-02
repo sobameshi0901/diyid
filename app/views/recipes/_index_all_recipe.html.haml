@@ -1,0 +1,9 @@
+%h1.mainTitle レシピ一覧
+.midThumRecipes
+  - @recipes.each do |recipe|
+    .subThumRecipe.clearfix
+      = link_to recipe_path(recipe) do
+        =image_tag recipe.image.to_s, class: 'subThumRecipe__image'
+        %p.subThumRecipe__title= recipe.name
+        %p.subThumRecipe__user= "投稿者：#{recipe.user.nickname}"
+  = paginate @recipes

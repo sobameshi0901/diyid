@@ -2,54 +2,23 @@
 .leftContent
   %h2.subTitle 
     = fa_icon 'thumbs-up'
-    今日のPickup
+    今日のピックアップ
   .mainThumRecipe
-    = link_to '#' do
-      %image.mainThumRecipe__image{src: 'assets/katsu1.jpg'}
-    = link_to '#' do
-      %p.mainThumRecipe__title スーパーカツ丼
-    %p.mainThumRecipe__explain 一口食べるだけで、すべての罪を吐き出したくなりますよ。
-    = link_to '#' do
-      %p.mainThumRecipe__user 投稿者：そばめしお
+    = link_to recipe_path(@new_pickup) do
+      =image_tag @new_pickup.image.to_s, class: "mainThumRecipe__image"
+    = link_to recipe_path(@new_pickup) do
+      %p.mainThumRecipe__title=@new_pickup.name
+      %p.mainThumRecipe__explain=@new_pickup.comment
+    = link_to "#" do
+      %p.mainThumRecipe__user="投稿者：#{@new_pickup.user.nickname}"
 
 .rightContent
   %h2.title.subTitle 
     = fa_icon 'trophy'
-    新着レシピランキング
+    新着の人気レシピ
   .subThumRecipes
-    .subThumRecipe
-      = link_to '#' do
-        %image.subThumRecipe__image{src: '/assets/katsu7.jpg'}
-        %image.rank{src: '/assets/rank1.png'}
-        %p.subThumRecipe__title すげぇカツ丼
-        %p.subThumRecipe__explain これまじすっげえよ。めちゃうめえよ。感動だこら
-    .subThumRecipe
-      = link_to '#' do
-        %image.subThumRecipe__image{src: '/assets/katsu1.jpg'}
-        %image.rank{src: '/assets/rank2.png'}
-        %p.subThumRecipe__title すげぇカツ丼
-        %p.subThumRecipe__explain これまじすっげえよ。めちゃうめえよ
-    .subThumRecipe
-      = link_to '#' do
-        %image.subThumRecipe__image{src: '/assets/katsu2.jpg'}
-        %image.rank{src: '/assets/rank3.png'}
-        %p.subThumRecipe__title すげぇカツ丼
-        %p.subThumRecipe__explain これまじすっげえよ。めちゃうめえよ
-    .subThumRecipe
-      = link_to '#' do
-        %image.subThumRecipe__image{src: '/assets/katsu3.jpeg'}
-        %image.rank{src: '/assets/rank4.png'}
-        %p.subThumRecipe__title すげぇカツ丼
-        %p.subThumRecipe__explain これまじすっげえよ。めちゃうめえよ
-    .subThumRecipe
-      = link_to '#' do
-        %image.subThumRecipe__image{src: '/assets/katsu4.jpeg'}
-        %image.rank{src: '/assets/rank5.png'}
-        %p.subThumRecipe__title すげぇカツ丼
-        %p.subThumRecipe__explain これまじすっげえよ。めちゃうめえよ
-    .subThumRecipe
-      = link_to '#' do
-        %image.subThumRecipe__image{src: '/assets/katsu5.jpg'}
-        %image.rank{src: '/assets/rank6.png'}
-        %p.subThumRecipe__title すげぇカツ丼
-        %p.subThumRecipe__explain これまじすっげえよ。めちゃうめえよ
+    -@new_rankings.each do |recipe|
+      .subThumRecipe
+        = link_to recipe_path(recipe) do
+          =image_tag recipe.image.to_s, class: "subThumRecipe__image"
+          %p.subThumRecipe__title=recipe.name

@@ -1,52 +1,9 @@
-%h1.mainTitle 人気のレシピ
-%ul.bigThumRecipes
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
-  %li.bigThumRecipe
-    = link_to '/recipes/1' do
-      %image.bigThumRecipe__image{src: '/assets/katsu1.jpg'}
-      %h4.bigThumRecipe__title スーパーカツ丼
-      %p.bigThumRecipe__user 投稿者：そばめしお
+.recipeRanking
+  %h3.mainTitle 人気のレシピ
+  %ul.bigThumRecipes
+    - @rankings.each do |recipe|
+      %li.bigThumRecipe
+        = link_to recipe_path(recipe) do
+          =image_tag recipe.image.to_s, class: "bigThumRecipe__image"
+          %h4.bigThumRecipe__title=recipe.name
+          %p.bigThumRecipe__user="投稿者：#{recipe.user.nickname}"
