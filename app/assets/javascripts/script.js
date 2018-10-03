@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',function() {
   $('.bigThumRecipes').slick({
     infinite: true,
     slidesToShow: 4,

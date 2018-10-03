@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',function() {
   $(".tabLabel").on("click",function(){
     var $th = $(this).index();
     $(".tabLabel").removeClass("active");
