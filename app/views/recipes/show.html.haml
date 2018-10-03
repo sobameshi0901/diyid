@@ -10,7 +10,7 @@
       =link_to "投稿者：そばめし", '#', class: "authorLink"
       =link_to "削除する", '#', class: "editLink"
       =link_to "編集する", edit_recipe_path(@recipe), class: "editLink"
-    .recipeFavo.clearfix
+    .recipeFavo.clearfix{style: "#{'pointer-events:none;' unless signed_in?}"}
       = link_to '#', class: "recipeFavo__like" do
         =fa_icon 'heart'
         %p いいね
