@@ -1,8 +1,8 @@
-- if @favorite.nil? 
-  =link_to recipe_favorites_path(recipe), method: :post, class: "notFavoritted" do
+- if favorite.nil?
+  =link_to recipe_favorites_path(recipe), method: :post, class: "notFavoritted", id: "favoriteButton", remote: true do
     =fa_icon 'star'
     %p お気に入り
 - else
-  =link_to recipe_favorite_path(recipe, favorite), method: :delete, class: "favoritted" do
+  =link_to recipe_favorite_path(recipe, favorite), method: :delete, class: "favoritted", id: "favoriteButton", remote: true do
     =fa_icon 'star'
     %p お気に入りを外す
