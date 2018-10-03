@@ -14,14 +14,6 @@
       = link_to '#', class: "recipeFavo__like" do
         =fa_icon 'heart'
         %p いいね
-        - if @favorite.nil? 
-          =link_to recipe_favorites_path(@recipe), method: :post, class: "notFavoritted" do
-            =fa_icon 'star'
-            %p お気に入り
-        - else
-          =link_to recipe_favorite_path(@recipe, @favorite), method: :delete, class: "favoritted" do
-            =fa_icon 'star'
-            %p お気に入りを外す
       = link_to '#', class: "recipeFavo__facebook" do
         =fa_icon 'facebook-square'
         %p シェアする
