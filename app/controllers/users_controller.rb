@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @favo_recipes = current_user.favorites.map(&:recipe) if current_user.favorites
-    @post_recipes = current_user.recipes.includes(:user) if current_user.recipes
+    @favo_recipes = Recipe.joins(:favorites).where("favorites.user_id = ?", current_user.id)
+    @post_recipes = Recipe.joins(:user).where("users.
+      id = ?", current_user.id)
   end
 end

@@ -23,21 +23,23 @@
       .userForm.diplayRecipe
         %h2.formMessage 投稿レシピ一覧
         .midThumRecipes
-          - @post_recipes.each do |recipe|
-            .subThumRecipe.clearfix
-              = link_to recipe_path(recipe) do
-                =image_tag recipe.image.to_s, class: 'subThumRecipe__image'
-                %p.subThumRecipe__title= recipe.name
+          -if @post_recipes
+            - @post_recipes.each do |recipe|
+              .subThumRecipe.clearfix
+                = link_to recipe_path(recipe) do
+                  =image_tag recipe.image.to_s, class: 'subThumRecipe__image'
+                  %p.subThumRecipe__title= recipe.name
     #panel3.tabPanel
       .userForm.diplayRecipe
         %h2.formMessage お気に入りレシピ一覧
         .midThumRecipes
-          - @favo_recipes.each do |recipe|
-            .subThumRecipe.clearfix
-              = link_to recipe_path(recipe) do
-                =image_tag recipe.image.to_s, class: 'subThumRecipe__image'
-                %p.subThumRecipe__title= recipe.name
-                %p.subThumRecipe__user= "投稿者：#{recipe.user.nickname}"
+          -if @favo_recipes
+            - @favo_recipes.each do |recipe|
+              .subThumRecipe.clearfix
+                = link_to recipe_path(recipe) do
+                  =image_tag recipe.image.to_s, class: 'subThumRecipe__image'
+                  %p.subThumRecipe__title= recipe.name
+                  %p.subThumRecipe__user= "投稿者：#{recipe.user.nickname}"
     #panel4.tabPanel
       .userForm
         %h2.formMessage フォロー
