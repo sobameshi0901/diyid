@@ -11,16 +11,20 @@
       =link_to "削除する", '#', class: "editLink"
       =link_to "編集する", edit_recipe_path(@recipe), class: "editLink"
     .recipeFavo.clearfix{style: "#{'pointer-events:none;' unless signed_in?}"}
-      = link_to '#', class: "recipeFavo__like" do
-        =fa_icon 'heart'
-        %p いいね
-      = render partial: "favorite", locals: {recipe: @recipe, favorite: @favorite}
-      = link_to '#', class: "recipeFavo__facebook" do
-        =fa_icon 'facebook-square'
-        %p シェアする
-      = link_to '#', class: "recipeFavo__twitter noMarginRight" do
-        =fa_icon 'twitter-square'
-        %p ツイートする
+      .recipeFavo__like
+        = link_to '#' do
+          =fa_icon 'heart'
+          %p いいね
+      .recipeFavo__favorite
+        = render partial: "favorite", locals: {recipe: @recipe, favorite: @favorite}
+      .recipeFavo__facebook
+        = link_to '#', class: "recipeFavo__facebook" do
+          =fa_icon 'facebook-square'
+          %p シェアする
+      .recipeFavo__twitter
+        = link_to '#', class: "recipeFavo__twitter noMarginRight" do
+          =fa_icon 'twitter-square'
+          %p ツイートする
     .recipeTop.clearfix
       =image_tag  "#{@recipe.image}" ,class: "recipePhoto"
       .recipeDetail

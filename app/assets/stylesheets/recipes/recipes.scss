@@ -279,14 +279,16 @@
     }
   }
   &__like {
-    border: 2px solid $red;
-    color: $red;
-    &:hover {
-      background-color: $red;
-      color: white;
+    a {
+      border: 2px solid $red;
+      color: $red;
+      &:hover {
+        background-color: $red;
+        color: white;
+      }
     }
   }
-    .notFavoritted {
+  .notFavoritted {
       border: 2px solid $orange;
       color: $orange;
       &:hover {
@@ -294,7 +296,7 @@
         color: white;
       }
     }
-    .favoritted {
+  .favoritted {
       color: white;
       background-color: $orange;
       border: 2px solid $orange;
@@ -305,21 +307,25 @@
       }
     }
   &__facebook {
-    background-color: $facebook;
-    border: 2px solid $facebook;
-    color: white;
-    &:hover {
-      color:$facebook;
-      background-color: white;
+    a{
+      background-color: $facebook;
+      border: 2px solid $facebook;
+      color: white;
+      &:hover {
+        color:$facebook;
+        background-color: white;
+      }
     }
   }
   &__twitter {
-    background-color: $twitter;
-    color: white;
-    border: 2px solid $twitter;
-    &:hover {
-      color: $twitter;
-      background-color: white;
+    a{
+      background-color: $twitter;
+      color: white;
+      border: 2px solid $twitter;
+      &:hover {
+        color: $twitter;
+        background-color: white;
+      }
     }
   }
   .noMarginRight {
