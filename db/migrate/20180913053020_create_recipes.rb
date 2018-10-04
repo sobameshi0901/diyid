@@ -6,8 +6,10 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :cost, null:false
       t.text   :comment, null:false
       t.text   :point, null:false
-      t.text   :picture, null:false, unique: true
+      t.text   :image, null:false, unique: true
       t.text   :size, null:false
+      t.references :category, null:false, foregin_key: true
+      t.references :user, null:false, foregin_key: true
       t.integer    :viewed
       t.timestamps
     end
