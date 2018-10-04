@@ -7,6 +7,7 @@
     .recipeCategory.clearfix
       %p カテゴリを選択
       / カテゴリを大カテゴリ→小カテゴリで表示
+      =f.grouped_collection_select(:category_id, LargeCategory.all, :categories, :name, :id, :name)
     .recipeTop.clearfix
       / 画像をクリックでファイル選択が開くよう、画像をlabel化、ファイル選択画面はdisplay:noneで表示しない
       .recipePhoto
