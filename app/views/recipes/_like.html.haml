@@ -1,0 +1,8 @@
+- if like.nil?
+  =link_to recipe_likes_path(recipe), method: :post, class: "notLiked", remote: true do
+    =fa_icon 'star'
+    %p="いいね：#{1}"
+- else
+  =link_to recipe_like_path(recipe, like), method: :delete, class: "liked", remote: true do
+    =fa_icon 'star'
+    %p="いいねを外す：#{1}"
