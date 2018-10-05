@@ -1,5 +1,9 @@
 .tabWrap
   .tabArea
+  / %label.tabLabel{for: "tab1"} プロフィール
+  / %label.tabLabel{for: "tab2"} 投稿レシピ
+  / %label.tabLabel{for: "tab3"} お気に入りレシピ
+  / %label.tabLabel{for: "tab4"} フォロー
     =link_to "投稿レシピ", render(partial: 'tab', locales: {tab1: "active",tab2: "", tab3: "", tab4: ""}), user_path(current_user), class: "label tabLabel #{tab1}"
     =link_to "投稿レシピ", render(partial: 'tab', locales: {tab1: "",tab2: "active", tab3: "", tab4: ""}), user_path(current_user), class: "label tabLabel #{tab2}"
     =link_to "投稿レシピ", render(partial: 'tab', locales: {tab1: "",tab2: "", tab3: "active", tab4: ""}), user_path(current_user), class: "label tabLabel #{tab3}"
