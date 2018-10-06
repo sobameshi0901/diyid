@@ -24,7 +24,8 @@
           =fa_icon 'twitter-square'
           %p ツイートする
     .recipeTop.clearfix
-      =image_tag  "#{@recipe.image}" ,class: "recipePhoto"
+      .recipePhoto
+        =image_tag  "#{@recipe.image}"
       .recipeDetail
         %h6
           制 作 費 用：
