@@ -129,13 +129,14 @@
     width: 90%;
     margin: 0 auto;
     padding-left: 10px;
-    label {
+    .tabLabel {
       width: 130px;
       display: inline-block;
       padding:12px 0;
       text-align:center;
       font-size:13px;
       background-color: white;
+      color: $darkGray;
       border: 2px solid $lightGray;
       border-bottom: none;
       border-radius: 5px 5px 0 0 ; 
@@ -143,7 +144,7 @@
         cursor: pointer;
       }
     }
-    label.active {
+    .tabLabel.active {
       // z-indexを使用するため
       position: relative;
       z-index: 10;

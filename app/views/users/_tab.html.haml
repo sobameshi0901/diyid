@@ -1,13 +1,9 @@
 .tabWrap
   .tabArea
-  / %label.tabLabel{for: "tab1"} プロフィール
-  / %label.tabLabel{for: "tab2"} 投稿レシピ
-  / %label.tabLabel{for: "tab3"} お気に入りレシピ
-  / %label.tabLabel{for: "tab4"} フォロー
-    =link_to "投稿レシピ", render(partial: 'tab', locales: {tab1: "active",tab2: "", tab3: "", tab4: ""}), user_path(current_user), class: "label tabLabel #{tab1}"
-    =link_to "投稿レシピ", render(partial: 'tab', locales: {tab1: "",tab2: "active", tab3: "", tab4: ""}), user_path(current_user), class: "label tabLabel #{tab2}"
-    =link_to "投稿レシピ", render(partial: 'tab', locales: {tab1: "",tab2: "", tab3: "active", tab4: ""}), user_path(current_user), class: "label tabLabel #{tab3}"
-    =link_to "投稿レシピ", render(partial: 'tab', locales: {tab1: "",tab2: "", tab3: "", tab4: "active"}), user_path(current_user), class: "label tabLabel #{tab4}"
+    =link_to "ユーザー情報", user_path(id: current_user.id, active: "tab1"), class: "tabLabel #{tab1}"
+    =link_to "投稿レシピ", user_path(id: current_user.id, active: "tab2"), class: "tabLabel #{tab2}"
+    =link_to "お気に入りレシピ", user_path(id: current_user.id, active: "tab3"), class: "tabLabel #{tab3}"
+    =link_to "フォロー", user_path(id: current_user.id, active: "tab4"), class: "tabLabel #{tab4}"
   .panelArea
     #panel1.tabPanel{class: "#{tab1}"}
       .userForm
@@ -23,7 +19,6 @@
           %p.form= current_user.email
         .actions
           =link_to "登録情報の変更", edit_user_registration_path ,class: "button bottomButton"
-    }
     #panel2.tabPanel{class: "#{tab2}"}
       .userForm.diplayRecipe
         %h2.formMessage 投稿レシピ一覧

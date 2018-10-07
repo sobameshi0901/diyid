@@ -1,1 +1,13 @@
-= render partial: 'tab', locals: {tab1: "active", tab2: "", tab3: "", tab4: ""}
+-if params[:active] == "tab1" || nil
+  - tab1 = "active"
+  - tab2 = tab3 = tab4 = ""
+-elsif params[:active] == "tab2"
+  - tab2 = "active"
+  - tab1 = tab3 = tab4 = ""
+-elsif params[:active] == "tab3"
+  - tab3 = "active"
+  - tab1 = tab2 = tab4 = ""
+-elsif params[:active] == "tab4"
+  - tab4 = "active"
+  - tab1, tab2, tab3 = ""
+= render partial: 'tab', locals: {tab1: tab1, tab2: tab2, tab3: tab3, tab4: tab4}
