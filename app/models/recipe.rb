@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
   has_many :materials
   has_many :favorites,dependent: :destroy
   has_many :recipes, through: :favorites
+  has_many :tag_maps dependent: :destroy
+  has_many :tags, through: :tag_maps
 
   validates :name, :image, :comment, :category, presence: true
   accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :reject_steps
