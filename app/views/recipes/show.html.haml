@@ -12,9 +12,7 @@
       =link_to "編集する", edit_recipe_path(@recipe), class: "editLink"
     .recipeFavo.clearfix{style: "#{'pointer-events:none;' unless signed_in?}"}
       .recipeFavo__like
-        = link_to '#' do
-          =fa_icon 'heart'
-          %p いいね
+        = render partial: "like", locals: {recipe: @recipe, like: @like}
       .recipeFavo__favorite
         = render partial: "favorite", locals: {recipe: @recipe, favorite: @favorite}
       .recipeFavo__facebook
@@ -26,7 +24,8 @@
           =fa_icon 'twitter-square'
           %p ツイートする
     .recipeTop.clearfix
-      =image_tag  "#{@recipe.image}" ,class: "recipePhoto"
+      .recipePhoto
+        =image_tag  "#{@recipe.image}"
       .recipeDetail
         %h6
           制 作 費 用：

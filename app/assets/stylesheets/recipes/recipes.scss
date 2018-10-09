@@ -279,7 +279,7 @@
     }
   }
   &__like {
-    a {
+    .notLiked {
       border: 2px solid $red;
       color: $red;
       &:hover {
@@ -287,23 +287,34 @@
         color: white;
       }
     }
-  }
-  .notFavoritted {
-      border: 2px solid $orange;
-      color: $orange;
+    .liked {
+      color: white;
+      background-color: $red;
+      border: 2px solid $red;
       &:hover {
-        background-color: $orange;
-        color: white;
+        color: $red;
+        background-color: white;
       }
     }
-  .favoritted {
-      color: white;
-      background-color: $orange;
-      border: 2px solid $orange;
-      &:hover {
-        color: $orange;
-        background-color: white;
+  }
+  &__favorite {
+    .notFavoritted {
         border: 2px solid $orange;
+        color: $orange;
+        &:hover {
+          background-color: $orange;
+          color: white;
+        }
+      }
+    .favoritted {
+        color: white;
+        background-color: $orange;
+        border: 2px solid $orange;
+        &:hover {
+          color: $orange;
+          background-color: white;
+          border: 2px solid $orange;
+        }
       }
     }
   &__facebook {
@@ -342,7 +353,11 @@
     width: 50%;
     height: 400px;
     float: left;
-    object-fit:cover;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit:cover;
+    }
     p {
       position: absolute;
       top: 40%;
