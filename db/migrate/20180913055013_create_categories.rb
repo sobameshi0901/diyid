@@ -2,7 +2,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
   def change
     create_table :categories do |t|
       t.string :name, null:false
-      t.integer :categories_id, null:false
+      t.references :large_category, null:false, foregin_key: true
       t.timestamps
     end
   end

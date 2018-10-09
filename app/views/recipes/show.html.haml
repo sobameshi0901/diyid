@@ -10,19 +10,21 @@
       =link_to "投稿者：そばめし", '#', class: "authorLink"
       =link_to "削除する", '#', class: "editLink"
       =link_to "編集する", edit_recipe_path(@recipe), class: "editLink"
-    .recipeFavo.clearfix
-      .recipeFavo__like 
-        =fa_icon 'heart'
-        %p いいね
-      .recipeFavo__favo
-        =fa_icon 'star'
-        %p お気に入り
+    .recipeFavo.clearfix{style: "#{'pointer-events:none;' unless signed_in?}"}
+      .recipeFavo__like
+        = link_to '#' do
+          =fa_icon 'heart'
+          %p いいね
+      .recipeFavo__favorite
+        = render partial: "favorite", locals: {recipe: @recipe, favorite: @favorite}
       .recipeFavo__facebook
-        =fa_icon 'facebook-square'
-        %p シェアする
-      .recipeFavo__twitter.noMarginRight
-        =fa_icon 'twitter-square'
-        %p ツイートする
+        = link_to '#', class: "recipeFavo__facebook" do
+          =fa_icon 'facebook-square'
+          %p シェアする
+      .recipeFavo__twitter
+        = link_to '#', class: "recipeFavo__twitter noMarginRight" do
+          =fa_icon 'twitter-square'
+          %p ツイートする
     .recipeTop.clearfix
       =image_tag  "#{@recipe.image}" ,class: "recipePhoto"
       .recipeDetail

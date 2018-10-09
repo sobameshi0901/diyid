@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
   $('.affiTitle').hover( function() {
     $(this).find('.affiLink').show();
   }, function() {

@@ -1,0 +1,45 @@
+.tabWrap
+  .tabArea
+    =link_to "ユーザー情報", user_path(id: current_user.id, active: "tab1"), class: "tabLabel #{'active' if active == 'tab1'}"
+    =link_to "投稿レシピ", user_path(id: current_user.id, active: "tab2"), class: "tabLabel #{'active' if active == 'tab2'}"
+    =link_to "お気に入りレシピ", user_path(id: current_user.id, active: "tab3"), class: "tabLabel #{'active' if active == 'tab3'}"
+    =link_to "フォロー", user_path(id: current_user.id, active: "tab4"), class: "tabLabel #{'active' if active == 'tab4'}"
+  .panelArea
+    #panel1.tabPanel{class: "#{'active' if active == 'tab1'}"}
+      .userForm
+        %h2.formMessage ユーザー情報
+        .field.clearfix
+          %p.label.imageLabel プロフィール画像：
+          =image_tag current_user.avatar.to_s, class: "profileImage"
+        .field.clearfix
+          %p.label ニックネーム：
+          %p.form= current_user.nickname
+        .field.clearfix
+          %p.label メールアドレス：
+          %p.form= current_user.email
+        .actions
+          =link_to "登録情報の変更", edit_user_registration_path ,class: "button bottomButton"
+    #panel2.tabPanel{class: "#{'active' if active == 'tab2'}"}
+      .userForm.diplayRecipe
+        %h2.formMessage 投稿レシピ一覧
+        .midThumRecipes
+          -if @post_recipes
+            - @post_recipes.each do |recipe|
+              .subThumRecipe.clearfix
+                = link_to recipe_path(recipe) do
+                  =image_tag recipe.image.to_s, class: 'subThumRecipe__image'
+                  %p.subThumRecipe__title= recipe.name
+    #panel3.tabPanel{class: "#{'active' if active == 'tab3'}"}
+      .userForm.diplayRecipe
+        %h2.formMessage お気に入りレシピ一覧
+        .midThumRecipes
+          -if @favo_recipes
+            - @favo_recipes.each do |recipe|
+              .subThumRecipe.clearfix
+                = link_to recipe_path(recipe) do
+                  =image_tag recipe.image.to_s, class: 'subThumRecipe__image'
+                  %p.subThumRecipe__title= recipe.name
+                  %p.subThumRecipe__user= "投稿者：#{recipe.user.nickname}"
+    #panel4.tabPanel{class: "#{'active' if active == 'tab4'}"}
+      .userForm
+        %h2.formMessage フォロー

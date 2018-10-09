@@ -263,8 +263,7 @@
 
 .recipeFavo {
   margin-top: 15px;
-  div {
-    float: left;
+  a {
     display: inline-block;
     float: left;
     width: 22%;
@@ -280,37 +279,53 @@
     }
   }
   &__like {
-    border: 2px solid $red;
-    color: $red;
-    &:hover {
-      background-color: $red;
-      color: white;
+    a {
+      border: 2px solid $red;
+      color: $red;
+      &:hover {
+        background-color: $red;
+        color: white;
+      }
     }
   }
-  &__favo {
-    border: 2px solid $orange;
-    color: $orange;
-    &:hover {
+  .notFavoritted {
+      border: 2px solid $orange;
+      color: $orange;
+      &:hover {
+        background-color: $orange;
+        color: white;
+      }
+    }
+  .favoritted {
+      color: white;
       background-color: $orange;
-      color: white;
+      border: 2px solid $orange;
+      &:hover {
+        color: $orange;
+        background-color: white;
+        border: 2px solid $orange;
+      }
     }
-  }
   &__facebook {
-    background-color: $facebook;
-    border: 2px solid $facebook;
-    color: white;
-    &:hover {
-      color:$facebook;
-      background-color: white;
+    a{
+      background-color: $facebook;
+      border: 2px solid $facebook;
+      color: white;
+      &:hover {
+        color:$facebook;
+        background-color: white;
+      }
     }
   }
   &__twitter {
-    background-color: $twitter;
-    color: white;
-    border: 2px solid $twitter;
-    &:hover {
-      color: $twitter;
-      background-color: white;
+    a{
+      background-color: $twitter;
+      color: white;
+      border: 2px solid $twitter;
+      &:hover {
+        color: $twitter;
+        background-color: white;
+      }
     }
   }
   .noMarginRight {

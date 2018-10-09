@@ -1,12 +1,16 @@
 // ユーザー登録・編集関連全体
+
+// フォームのサイズ、ただし、レシピを表示する場合はwidhを大きくしてpaddingを少なくするため、diplayRecipeで指定する。
 .userForm {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding: 30px 45px;
-  background-color: #F5F5F5 ;
+  background-color: $beige ;
   border-radius: 10px;
   text-align: center;
-    box-shadow: 0 0 3px $gray;
+  box-shadow: 0 0 3px $gray;
+  position: relative;
+  z-index: 9;
 
   .formMessage {
 
@@ -104,5 +108,58 @@
     font-weight: bold;
     font-size: 15px;
     text-decoration: underline;
+  }
+}
+// レシピを表示する場合のサイズ。横幅を広げる。
+.userForm.diplayRecipe {
+  padding: 30px 10px;
+  text-align: left;
+  .formMessage {
+    margin: 0 35px;
+  }
+  .subThumRecipe {
+    text-align: center;
+  }
+}
+
+
+.tabWrap {
+  width: 100%;
+  .tabArea {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 10px;
+    .tabLabel {
+      width: 130px;
+      display: inline-block;
+      padding:12px 0;
+      text-align:center;
+      font-size:13px;
+      background-color: white;
+      color: $darkGray;
+      border: 2px solid $lightGray;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0 ; 
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .tabLabel.active {
+      // z-indexを使用するため
+      position: relative;
+      z-index: 10;
+      background-color:$beige;
+    }
+  }
+  .panelArea {
+    width: 100%;
+    .tabPanel {
+      width: 100%;
+      display: none;
+    }
+    .tabPanel.active {
+      display: block;
+    }
+
   }
 }
