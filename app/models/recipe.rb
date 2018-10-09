@@ -6,8 +6,8 @@ class Recipe < ApplicationRecord
   has_many :favorites,dependent: :destroy
   has_many :users, through: :favorites
   has_many :likes,dependent: :destroy
-ˇ  has_many :users, through: :likes
-  has_many :tag_maps dependent: :destroy
+  has_many :users, through: :likes
+  has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
 
   validates :name, :image, :comment, :category, presence: true
