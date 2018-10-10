@@ -24,8 +24,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    binding.pry
     if @recipe.save
+      Tag.register_tag(params[:tag])
       redirect_to @recipe
     else
       render :new
@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
+    binding.pry
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
