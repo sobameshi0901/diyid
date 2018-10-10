@@ -32,4 +32,11 @@ class Recipe < ApplicationRecord
     !exists && empty
   end
 
+  # タグ一覧の配列をeachで回し、それぞれのタグとrecipeのidをTag_mapに登録する
+  def register_tags(tag_list)
+    tag_list.each do |tag|
+      TagMap.create(recipe_id: self.id, tag_id: tag.id)
+    end
+  end
+
 end
