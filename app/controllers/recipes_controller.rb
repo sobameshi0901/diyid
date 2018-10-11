@@ -28,7 +28,6 @@ class RecipesController < ApplicationController
       # タグの一覧を取得し、新しいタグは新規で登録
       tag_list = Tag.set_tags(params[:tag])
       # 取得したタグ一覧をTag_mapテーブルに保存
-      binding.pry
       @recipe.register_tags(tag_list)
       redirect_to @recipe
     else
