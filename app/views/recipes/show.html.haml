@@ -41,7 +41,7 @@
         .tags
           %h6.comment タグ一覧
           - @recipe.tags.each do |tag|
-            %a{href: '#'}
+            = link_to tag_path(tag) do
               =fa_icon 'tag'
               =tag.name
     .recipeMates
