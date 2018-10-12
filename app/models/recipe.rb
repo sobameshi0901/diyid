@@ -39,4 +39,12 @@ class Recipe < ApplicationRecord
     end
   end
 
+
+  def update_tags(tag_list)
+    delete_tags = self.tags - tag_list
+    new_tags = tag_list - self.tags
+    delete_tags.each{|tag| TagMap.find_by(recipe_id: self.id, tag_id: tag.id).delete}
+    new_tags.each{|tag| TagMap.create(recipe_id: self.id, tag_id: tag.id)}
+  end
+
 end

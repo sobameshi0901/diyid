@@ -41,8 +41,9 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    binding.pry
     if @recipe.update(recipe_params)
+      tag_list = Tag.set_tags(params[:tag])
+      @recipe.update_tags(tag_list)
       redirect_to @recipe
     else
       render :edit
