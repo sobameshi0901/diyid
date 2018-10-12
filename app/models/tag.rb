@@ -11,8 +11,8 @@ class Tag < ApplicationRecord
       unless tag_name == nil
         tag = Tag.where(name: tag_name).first_or_initialize
         tag.save
+        tag_lists << tag
       end
-      tag_lists << tag
     end
     return tag_lists
   end
