@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   root 'recipes#index'
   devise_for :users
   resources :users, only: :show
