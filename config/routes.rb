@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :favorites, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
+    resources :messages, only: [:create, :edit]
   end
 end
