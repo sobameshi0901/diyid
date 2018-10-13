@@ -31,7 +31,7 @@
         / この部分は未完
         .tags
           %h6.comment タグ一覧を入力
-          - (0..5).each do |i|
+          - 6.times do |i|
             %input{type: "text", name:"tag[#{i}]", placeholder: '挿入したいタグを入力'}
       / 材料入力部分
     .recipeMates
