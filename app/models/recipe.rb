@@ -9,7 +9,7 @@ class Recipe < ApplicationRecord
   has_many :users, through: :likes
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
-
+  has_many :questions, dependent: :destroy
   validates :name, :image, :comment, :category, presence: true
   accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :reject_steps
   # proc { |attributes| attributes['content'].blank? }
