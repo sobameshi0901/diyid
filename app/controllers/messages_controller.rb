@@ -7,6 +7,11 @@ class MessagesController < ApplicationController
       message = Message.new(message_params)
       message.save
       redirect_to controller: :recipes, action: :show, id: params[:recipe_id]
+    else
+      @status = check_status
+      message = Message.new(message_params)
+      message.save
+      redirect_to controller: :recipes, action: :show, id: params[:recipe_id]
     end
   end
 

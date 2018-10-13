@@ -3,28 +3,33 @@
     =fa_icon 'question-circle'
     質問掲示板(7件)
     = form_for [@recipe,@message] , class: "postForm" do |f|
-      =f.text_field :context, placeholder: "質問内容を記入してください", class: "postForm__content"
+      =f.text_field :context, placeholder: "質問内容を記入してください", class: "postForm__context"
       =f.submit "SEND", class: "postForm__send"
       =f.text_field :status, style: "display:none", value: "new"
 
   %p.recipeBoardButton 掲示板を開く
-  .posts
-    .question.clearfix
-      %a.prof.question__prof{href:'#'}
-        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
-        %p.name そばめし
-      .comment.question__comment
-        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
-        %p.comment__time 投稿:18/09/01 10:23
-    .reply.clearfix
-      %a.prof.reply__prof{href:'#'}
-        %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
-      .comment.reply__comment
-        %p そうなんだあああああああああああああああああああああああああああああああああ
-        %p.comment__time 投稿:18/09/01 10:24
-    %a.replyButton{href:''}
-      =fa_icon 'reply'
-      返信する
+  -@recipe.questions.each do |question|
+    .posts
+      -question.messages.each do |message|
+        - if message.status == 0
+          .question.clearfix
+            =link_to user_path(message.user), class: 'prof question__prof' do
+              =image_tag message.user.avatar.to_s, class: 'icon question__icon'
+              %p.name= message.user.nickname
+            .comment.question__comment
+              %p= message.context
+              %p.comment__time= "投稿:#{message.created_at}"
+        - else
+          .reply.clearfix
+            =link_to user_path(message.user), class: 'prof reply__prof' do
+              =image_tag message.user.avatar.to_s, class: 'icon reply__icon'
+              %p.name= message.user.nickname
+            .comment.reply__comment
+              %p= message.context
+              %p.comment__time= "投稿:#{message.created_at}"
+      %a.replyButton{href:''}
+        =fa_icon 'reply'
+        返信する
   .posts
     .question.clearfix
       %a.prof.question__prof{href:'#'}
