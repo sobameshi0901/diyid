@@ -2,9 +2,10 @@
   %h4.title 
     =fa_icon 'question-circle'
     質問掲示板(7件)
-    %form.postForm{:action => "/", :method => "post"}
-      %input.postForm__content{name: 'content', placeholder: '質問内容を記入してください。（最大３００文字）'}
-      %input.postForm__send{type: "submit", value: "SEND"}
+    = form_for [@recipe,@message] , class: "postForm" do |f|
+      =f.text_field :context, placeholder: "質問内容を記入してください", class: "postForm__content"
+      =f.submit "SEND", class: "postForm__send"
+      =f.text_field :status, style: "display:none", value: "new"
 
   %p.recipeBoardButton 掲示板を開く
   .posts
