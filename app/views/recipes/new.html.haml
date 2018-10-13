@@ -30,22 +30,9 @@
         =f.text_area :comment, class: "commentForm", placeholder: 'どのような目的で作ったか、使ってみてどうかなど、自由に入力してください。'
         / この部分は未完
         .tags
-          %h6.comment タグ一覧
-          =link_to '#' do
-            =fa_icon 'tag'
-            トンカツ
-          =link_to '#' do
-            =fa_icon 'tag'
-            時短レシピ
-          =link_to '#' do
-            =fa_icon 'tag'
-            千円以下
-          =link_to '#' do
-            =fa_icon 'tag'
-            嫁に欲しい
-          =link_to '#' do
-            =fa_icon 'tag'
-            何かよくわからない
+          %h6.comment タグ一覧を入力
+          - 6.times do |i|
+            %input{type: "text", name:"tag[#{i}]", placeholder: '挿入したいタグを入力'}
       / 材料入力部分
     .recipeMates
       .recipeMate.recipeInfoBox.margin
@@ -55,7 +42,7 @@
           -(0..5).each do |i|
             %li.affiTitle
               / name、idをiに合わせて変更
-              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：天板 高さ100x横幅250x厚さ50 １枚"}
+              %input{type: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：天板 高さ100x横幅250x厚さ50 １枚"}
               / valueは0＝材料で固定し、display:noneで表示させない
               %input{type: "text", value: "0", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
       .recipeMate.recipeInfoBox
@@ -64,7 +51,7 @@
           / 上と同じだが、JSで入力欄を増やす可能性があるため、数字は10~にしておく
           -(10..15).each do |i|
             %li.affiTitle
-              %input{tyep: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：電動ノコギリ"}
+              %input{type: "text", name: "recipe[materials_attributes][#{i}][name]", id: "recipe_materials_attributes_#{i}_name", placeholder: "例：電動ノコギリ"}
               / valueは1=工具で固定し、display:noneで表示させない
               %input{type: "text", value: "1", name:"recipe[materials_attributes][#{i}][category]", id: "recipe_materials_attributes_#{i}_category", style:"display:none;"}
   / レシピ作成手順入力画面
@@ -82,7 +69,7 @@
               =fa_icon 'facebook'
               %p 画像を登録する
             %input{type: "file", name: "recipe[steps_attributes][#{i}][image]", id: "recipe_steps_attributes_#{i}_image", style: "display:none;"}
-          %textarea{tyep: "text", name: "recipe[steps_attributes][#{i}][content]", id: "recipe_steps_attributes_#{i}_content", class: "recipeStep__stepDetail__comment", placeholder: "行程を入力してください"}
+          %textarea{type: "text", name: "recipe[steps_attributes][#{i}][content]", id: "recipe_steps_attributes_#{i}_content", class: "recipeStep__stepDetail__comment", placeholder: "行程を入力してください"}
     .recipePoint.recipeInfoBox.margin
       %h6.recipeInfoBox__title コツ・ポイント
       %p.recipeInfoBox__content=f.text_area :point, placeholder: "作成する上で、コツやポイントがあれば入力してください。"

@@ -25,6 +25,10 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
+      # タグの一覧を取得し、新しいタグは新規で登録
+      tag_list = Tag.set_tags(params[:tag])
+      # 取得したタグ一覧をTag_mapテーブルに保存
+      @recipe.register_tags(tag_list)
       redirect_to @recipe
     else
       render :new
@@ -38,6 +42,8 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
+      tag_list = Tag.set_tags(params[:tag])
+      @recipe.update_tags(tag_list)
       redirect_to @recipe
     else
       render :edit
