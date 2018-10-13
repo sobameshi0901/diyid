@@ -1,5 +1,4 @@
 class Tag < ApplicationRecord
-<<<<<<< HEAD
   has_many :tag_maps, dependent: :destroy
   has_many :recipes, through: :tag_maps
   validates :name, presence: true
@@ -17,8 +16,4 @@ class Tag < ApplicationRecord
     end
     return tag_lists
   end
-=======
-  has_many :tag_maps dependent: :destroy
-  has_many :recipes, through: :tag_maps
->>>>>>> 14b047c9f56e313b58411cc4e85ff311d324e273
 end
