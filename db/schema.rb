@@ -59,7 +59,8 @@ ActiveRecord::Schema.define(version: 2018_10_13_135258) do
     t.bigint "question_id", null: false
     t.bigint "user_id", null: false
     t.text "context", null: false
-    t.integer "status", null: false
+    t.integer "is_recipe_user", null: false
+    t.integer "is_first", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_messages_on_question_id"
