@@ -130,8 +130,10 @@
 
   .replyButton {
     padding: 5px 10px;
+    margin-left: 15px;
     float: right;
     background-color: $twitter;
+    border: 2px solid $lightGray;
     color: white;
     font-size: 12px;
     border-radius: 5px;

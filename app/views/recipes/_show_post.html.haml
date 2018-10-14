@@ -11,7 +11,8 @@
   -@recipe.questions.each do |question|
     .posts
       -question.messages.each do |message|
-        - if message.is_recipe_user == 0
+        - if message.is_recipe_user == 1
+          / 質問投稿者がレシピ投稿者と異なる場合
           .question.clearfix
             =link_to user_path(message.user), class: 'prof question__prof' do
               =image_tag message.user.avatar.to_s, class: 'icon question__icon'
@@ -20,6 +21,7 @@
               %p= message.context
               %p.comment__time= "投稿:#{message.created_at}"
         - else
+          / 質問投稿者とレシピ投稿者が同じ（質問）の場合
           .reply.clearfix
             =link_to user_path(message.user), class: 'prof reply__prof' do
               =image_tag message.user.avatar.to_s, class: 'icon reply__icon'
@@ -27,55 +29,8 @@
             .comment.reply__comment
               %p= message.context
               %p.comment__time= "投稿:#{message.created_at}"
-      =form_for [@recipe, @message] do |f|
-        =f.text_field :context
-        =f.text_field :question_id, value: question.id, style: 'display:none'
-        =f.submit class: 'replyButton' do
-          =fa_icon 'reply'
-          返信する
-  .posts
-    .question.clearfix
-      %a.prof.question__prof{href:'#'}
-        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
-        %p.name そばめし
-      .comment.question__comment
-        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
-        %p.comment__time 投稿:18/09/01 10:23
-    .reply.clearfix
-      %a.prof.reply__prof{href:'#'}
-        %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
-      .comment.reply__comment
-        %p そうなんだあああああああああああああああああああああああああああああああああ
-        %p.comment__time 投稿:18/09/01 10:24
-    %a.replyButton{href:''}
-      =fa_icon 'reply'
-      返信する
-
-  .posts
-    .question.clearfix
-      %a.prof.question__prof{href:'#'}
-        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
-        %p.name そばめし
-      .comment.question__comment
-        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
-        %p.comment__time 投稿:18/09/01 10:23
-    .reply.clearfix
-      %a.prof.reply__prof{href:'#'}
-        %image.icon.reply__icon{src:'/assets/katsu1.jpg'}
-      .comment.reply__comment
-        %p そうなんだああああああああああああああああああああああああああ青rじゃいrj技青gjらおrあああああああああああああああああああ
-        %p.comment__time 投稿:18/09/01 10:24
-    .question.clearfix
-      %a.prof.question__prof{href:'#'}
-        %image.icon.question__icon{src:'/assets/katsu1.jpg'}
-        %p.name そばめし
-      .comment.question__comment
-        %p だよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
-        %p.comment__time 投稿:18/09/01 10:23            
-    %a.replyButton{href:''}
-      =fa_icon 'reply'
-      返信する
-
-
-
-
+      =form_tag '/messages', method: :post, class: '' do
+        %input{type: "submit",id: 'replyButton', class: 'replyButton', value: '返信する'}
+        %input{type: 'text', name: 'context', class: 'reply__comment comment', placeholder: '返信コメントを入力してください'}
+        %input{type: 'text', name: 'question_id', value: "#{question.id}", style: 'display:none;'}
+        %input{type: 'text', name: 'recipe_id', value: "#{@recipe.id}", style: 'display:none;'}
