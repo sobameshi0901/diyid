@@ -11,7 +11,7 @@
   -@recipe.questions.each do |question|
     .posts
       -question.messages.each do |message|
-        - if message.status == 0
+        - if message.is_recipe_user == 0
           .question.clearfix
             =link_to user_path(message.user), class: 'prof question__prof' do
               =image_tag message.user.avatar.to_s, class: 'icon question__icon'
@@ -27,9 +27,12 @@
             .comment.reply__comment
               %p= message.context
               %p.comment__time= "投稿:#{message.created_at}"
-      %a.replyButton{href:''}
-        =fa_icon 'reply'
-        返信する
+      =form_for [@recipe, @message] do |f|
+        =f.text_field :context
+        =f.text_field :question_id, value: question.id, style: 'display:none'
+        =f.submit class: 'replyButton' do
+          =fa_icon 'reply'
+          返信する
   .posts
     .question.clearfix
       %a.prof.question__prof{href:'#'}
