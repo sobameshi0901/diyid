@@ -12,7 +12,7 @@
     .posts
       -question.messages.each do |message|
         - if message.is_recipe_user == 1
-          / 質問投稿者がレシピ投稿者と異なる場合
+          / 質問投稿者がレシピ投稿者と異なる（質問）の場合
           .question.clearfix
             =link_to user_path(message.user), class: 'prof question__prof' do
               =image_tag message.user.avatar.to_s, class: 'icon question__icon'
@@ -20,8 +20,12 @@
             .comment.question__comment
               %p= message.context
               %p.comment__time= "投稿:#{message.created_at}"
+              / 最初のメッセージのみ削除ボタンが表示され、questionごと全てのmessageを削除する
+              / 削除ができるのは質問の投稿者もしくはレシピの投稿者
+              - if message.is_first == 0 && current_user == message.user || message.is_first == 0 && current_user == @recipe.user
+                =link_to '削除', recipe_message_path(@recipe, message), method: :delete, class: 'deleteButton'
         - else
-          / 質問投稿者とレシピ投稿者が同じ（質問）の場合
+          / 質問投稿者とレシピ投稿者が同じ（回答）の場合
           .reply.clearfix
             =link_to user_path(message.user), class: 'prof reply__prof' do
               =image_tag message.user.avatar.to_s, class: 'icon reply__icon'
@@ -29,6 +33,10 @@
             .comment.reply__comment
               %p= message.context
               %p.comment__time= "投稿:#{message.created_at}"
+              / recipeユーザーとmessageユーザーが同じであるmessageの表示なので、message.user == recipe.userは確定。
+              / current_userがどちらか（＝どちらにも）当てはまることを確認
+              - if message.is_first == 0 && current_user == message.user
+                =link_to '削除', recipe_message_path(@recipe, message), method: :delete, class: 'deleteButton'
       =form_tag '/messages', method: :post, class: '' do
         %input{type: "submit",id: 'replyButton', class: 'replyButton', value: '返信する'}
         %input{type: 'text', name: 'context', class: 'reply__comment comment', placeholder: '返信コメントを入力してください'}

@@ -16,6 +16,16 @@ class MessagesController < ApplicationController
     redirect_to controller: :recipes, action: :show, id: params[:recipe_id]
   end
 
+  def destroy
+    message = Message.find(params[:id])
+    # ユーザーがレシピ投稿者、もしくは質問投稿者の場合
+    if current_user == Recipe.find(params[:recipe_id]).user || current_user == message.user
+      # messageの親であるquestionを削除。子のmessagesも一緒にdestroyされる
+      message.question.destroy
+      redirect_to controller: :recipes, action: :show, id: params[:recipe_id]
+    end
+  end
+
   private
   def new_message_params
     params.require(:message).permit(:context).merge(user_id: current_user.id, question_id: @question.id, is_recipe_user: check_status, is_first: '0')
