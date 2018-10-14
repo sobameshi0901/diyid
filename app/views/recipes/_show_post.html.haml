@@ -8,7 +8,7 @@
       =f.text_field :status, style: "display:none", value: "new"
 
   %p.recipeBoardButton 掲示板を開く
-  -@recipe.questions.each do |question|
+  -@recipe.questions.order('updated_at DESC').each do |question|
     .posts
       -question.messages.each do |message|
         - if message.is_recipe_user == 1
