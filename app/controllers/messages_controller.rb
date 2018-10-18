@@ -4,18 +4,15 @@ class MessagesController < ApplicationController
   def create
     # このアクションに送られてくるのは新しいquestionなので、questionをnew&saveする。
     @question = Question.new(recipe_id: params[:recipe_id])
-    if @question.save
+    Question.transaction do
+      @question.save!
       # formで送られたparams+replyアクションと共通のカラムをセットするmessage_paramsに、最初の質問に対するis_firstに0を引数として渡してセット。
       message = @question.messages.new(new_message_params)
-      if message.save
-        redirect_to controller: :recipes, action: :show, id: params[:recipe_id]
-      else
-        @question.delete
-        redirect_recipe_when_fail('質問の投稿に失敗しました')
-      end
-    else
-      redirect_recipe_when_fail('質問の投稿に失敗しました')
+      message.save!
     end
+      redirect_to controller: :recipes, action: :show, id: params[:recipe_id]
+    rescue
+      redirect_recipe_when_fail('質問の投稿に失敗しました')
   end
 
   def reply
