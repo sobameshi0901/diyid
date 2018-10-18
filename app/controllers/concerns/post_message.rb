@@ -10,11 +10,7 @@ module PostMessage
 
   # messageの投稿者がrecipeの投稿者と同じか判定
   def check_status
-    if current_user.id == Recipe.find(params[:recipe_id]).user_id
-      return '0'
-    else
-      return '1'
-    end
+    current_user.id == Recipe.find(params[:recipe_id]).user_id ? '0' : '1'
   end
 
   def redirect_recipe_when_fail(message)
