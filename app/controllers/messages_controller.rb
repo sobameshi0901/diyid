@@ -39,4 +39,13 @@ class MessagesController < ApplicationController
       redirect_recipe_when_fail('投稿の削除に失敗しました')
     end
   end
+
+  private
+  def new_message_params
+    params.require(:message).permit(:context).merge(user_id: current_user.id, question_id: @question.id, is_recipe_user: check_status, is_first: '0')
+  end
+
+  def reply_message_params
+    params.permit(:context, :question_id).merge(user_id: current_user.id, is_recipe_user: check_status, is_first: '1')
+  end
 end
