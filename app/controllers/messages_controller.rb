@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @question = Question.new(recipe_id: params[:recipe_id])
     if @question.save
       # formで送られたparams+replyアクションと共通のカラムをセットするmessage_paramsに、最初の質問に対するis_firstに0を引数として渡してセット。
-      message = Message.new(new_message_params)
+      message = @question.messages.new(new_message_params)
       if message.save
         redirect_to controller: :recipes, action: :show, id: params[:recipe_id]
       else
@@ -42,7 +42,7 @@ class MessagesController < ApplicationController
 
   private
   def new_message_params
-    params.require(:message).permit(:context).merge(user_id: current_user.id, question_id: @question.id, is_recipe_user: check_status, is_first: '0')
+    params.require(:message).permit(:context).merge(user_id: current_user.id, is_recipe_user: check_status, is_first: '0')
   end
 
   def reply_message_params
