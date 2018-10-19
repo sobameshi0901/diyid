@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
     @recipe  = Recipe.find(params[:id])
     @favorite = Favorite.find_by(user_id: current_user.id, recipe_id: params[:id]) if signed_in?
     @like = Like.find_by(user_id: current_user.id, recipe_id: params[:id]) if signed_in?
+    @message = Message.new
 
   end
 

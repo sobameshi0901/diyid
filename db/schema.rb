@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_124458) do
+ActiveRecord::Schema.define(version: 2018_10_13_135258) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,25 @@ ActiveRecord::Schema.define(version: 2018_10_08_124458) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_materials_on_recipe_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
+    t.text "context", null: false
+    t.integer "is_recipe_user", null: false
+    t.integer "is_first", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_messages_on_question_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_questions_on_recipe_id"
   end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -122,6 +141,9 @@ ActiveRecord::Schema.define(version: 2018_10_08_124458) do
 
   add_foreign_key "likes", "recipes"
   add_foreign_key "likes", "users"
+  add_foreign_key "messages", "questions"
+  add_foreign_key "messages", "users"
+  add_foreign_key "questions", "recipes"
   add_foreign_key "steps", "recipes"
   add_foreign_key "tag_maps", "recipes"
   add_foreign_key "tag_maps", "tags"

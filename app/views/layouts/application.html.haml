@@ -11,6 +11,9 @@
     .contentInner
       = yield :recipe_rank
       .mainContents
+        - flash.each do |key, value|
+          %div{class: "alert alert-#{key}"}
+            = value
         = yield
       .sideContents
         = render '/layouts/side_bar'
